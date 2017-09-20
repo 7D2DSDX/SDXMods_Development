@@ -1,0 +1,15 @@
+<mod>
+	<info>
+		<author>sphereii</author>
+		<name>Random WalkType and Speed</name>
+		<description>Randomizes Zombie walk types and speed on their approach</description>
+		<mod_version>1.0</mod_version>
+		<game_version>16.3</game_version>
+		<launcher_version></launcher_version>
+	</info>
+	
+	<config_mods>
+		<!-- <import file="Configs\HalDarkRun.xml" /-->
+	</config_mods>
+	
+</mod>
