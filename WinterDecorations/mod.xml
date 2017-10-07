@@ -9,7 +9,7 @@
 	</info>
 	
 	<config_mods>
-		<import file="Configs\WinderDecorations.xml" />
+		<import file="Configs\WinterDecorations.xml" />
 	</config_mods>
 	
 </mod>
