@@ -1,0 +1,15 @@
+<mod>
+	<info>
+		<author>sphereii</author>
+		<name>Tents and Huts - Biome Decorations</name>
+		<description>Tents and Huts Biome Decorations</description>
+		<mod_version>1.0</mod_version>
+		<game_version>16.3</game_version>
+		<launcher_version></launcher_version>
+	</info>
+	
+	<config_mods>
+		<import file="Configs\BiomeDecorations.xml" />
+	</config_mods>
+	
+</mod>
