@@ -1,0 +1,20 @@
+<mod>
+	<info>
+		<author>sphereii</author>
+		<name>Desert Decorations</name>
+		<description>Add more variety of trees, using the Desert Decorations pack</description>
+		<mod_version>1.0</mod_version>
+		<game_version>16.3</game_version>
+		<launcher_version></launcher_version>
+	</info>
+	
+	<config_mods>
+		<import file="Configs\DesertBushes.xml" />
+				<import file="Configs\DesertCactus.xml" />
+
+						<!--import file="Configs\DesertRocks.xml" /-->
+		<import file="Configs\PowerPoles.xml" />
+
+	</config_mods>
+	
+</mod>

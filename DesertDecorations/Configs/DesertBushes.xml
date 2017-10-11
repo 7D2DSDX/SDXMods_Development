@@ -1,0 +1,169 @@
+<configs>
+	<!--  This tells SDX to add to the blocks.xml -->
+	<config name="blocks">	
+		<!-- This tells SDX to add the following block to the bottom of the block list -->
+		<append xpath="/blocks">	
+			<block id="" name="Bush01">
+				<property name="Extends" value="treeSnowyDeadBush" />
+				<property name="Model" value="#DesertBushes?Bush01" />
+			
+				<drop event="Harvest" name="grass" count="1" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="Bush02">
+				<property name="Extends" value="treeSnowyDeadBush" />
+				<property name="Model" value="#DesertBushes?Bush02" />
+			
+				<drop event="Harvest" name="grass" count="1" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="Bush03">
+				<property name="Extends" value="treeSnowyDeadBush" />
+				<property name="Model" value="#DesertBushes?Bush03" />
+				
+				<drop event="Harvest" name="grass" count="1" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="Bush04">
+				<property name="Extends" value="treeSnowyDeadBush" />
+				<property name="Model" value="#DesertBushes?Bush04" />
+			
+				<drop event="Harvest" name="grass" count="1" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="Bush05">
+				<property name="Extends" value="treeSnowyDeadBush" />
+				<property name="Model" value="#DesertBushes?Bush05" />
+				
+				<drop event="Harvest" name="grass" count="1" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="Bush06">
+				<property name="Extends" value="treeSnowyDeadBush" />
+				<property name="Model" value="#DesertBushes?Bush06" />
+				<drop event="Harvest" name="grass" count="1" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="Bush07">
+				<property name="Extends" value="treeSnowyDeadBush" />
+				<property name="Model" value="#DesertBushes?Bush07" />
+				<drop event="Harvest" name="grass" count="1" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="Bush08">
+				<property name="Extends" value="treeSnowyDeadBush" />
+				<property name="Model" value="#DesertBushes?Bush08" />
+				<drop event="Harvest" name="grass" count="1" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="Bush09">
+				<property name="Extends" value="treeSnowyDeadBush" />
+				<property name="Model" value="#DesertBushes?Bush09" />
+				<drop event="Harvest" name="grass" count="1" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="Bush10">
+				<property name="Extends" value="treeSnowyDeadBush" />
+				<property name="Model" value="#DesertBushes?Bush10" />
+				<drop event="Harvest" name="grass" count="1" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="Bush11">
+				<property name="Extends" value="treeSnowyDeadBush" />
+				<property name="Model" value="#DesertBushes?Bush11" />
+				<drop event="Harvest" name="grass" count="1" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="Bush12">
+				<property name="Extends" value="treeSnowyDeadBush" />
+				<property name="Model" value="#DesertBushes?Bush12" />
+				<drop event="Harvest" name="grass" count="1" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="Bush13">
+				<property name="Extends" value="treeSnowyDeadBush" />
+				<property name="Model" value="#DesertBushes?Bush13" />
+				<drop event="Harvest" name="wood" count="1,3" tool_category="harvestingTools" />
+				<drop event="Harvest" name="grass" count="1" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="Bush14">
+				<property name="Extends" value="treeSnowyDeadBush" />
+				<property name="Model" value="#DesertBushes?Bush14" />
+				<drop event="Harvest" name="grass" count="1" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="Bush15">
+				<property name="Extends" value="treeSnowyDeadBush" />
+				<property name="Model" value="#DesertBushes?Bush15" />
+				<drop event="Harvest" name="grass" count="1" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="Bush16">
+				<property name="Extends" value="treeSnowyDeadBush" />
+				<property name="Model" value="#DesertBushes?Bush16" />
+				<drop event="Harvest" name="grass" count="1" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="Bush17">
+				<property name="Extends" value="treeSnowyDeadBush" />
+				<property name="Model" value="#DesertBushes?Bush17" />
+				<drop event="Harvest" name="grass" count="1" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="Bush18">
+				<property name="Extends" value="treeSnowyDeadBush" />
+				<property name="Model" value="#DesertBushes?Bush18" />
+				<drop event="Harvest" name="grass" count="1" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="Bush19">
+				<property name="Extends" value="treeSnowyDeadBush" />
+				<property name="Model" value="#DesertBushes?Bush19" />
+				<drop event="Harvest" name="grass" count="1" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="Bush20">
+				<property name="Extends" value="treeSnowyDeadBush" />
+				<property name="Model" value="#DesertBushes?Bush20" />
+				<drop event="Harvest" name="grass" count="1" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="Bush21">
+				<property name="Extends" value="treeSnowyDeadBush" />
+				<property name="Model" value="#DesertBushes?Bush21" />
+				<drop event="Harvest" name="grass" count="1" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="Bush22">
+				<property name="Extends" value="treeSnowyDeadBush" />
+				<property name="Model" value="#DesertBushes?Bush22" />
+				<drop event="Harvest" name="grass" count="1" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="Bush23">
+				<property name="Extends" value="treeSnowyDeadBush" />
+				<property name="Model" value="#DesertBushes?Bush23" />
+				<drop event="Harvest" name="grass" count="1" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="Bush24">
+				<property name="Extends" value="treeSnowyDeadBush" />
+				<property name="Model" value="#DesertBushes?Bush24" />
+				<drop event="Harvest" name="grass" count="1" tool_category="harvestingTools" />
+			</block>
+
+
+
+		</append>
+	</config>
+
+	<config name="biomes">
+		<append xpath="/worldgeneration/biomes/biome[@name='desert']/decorations">	
+			<decoration type="block" blockname="Bush01" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Bush02" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Bush03" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Bush04" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Bush05" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Bush06" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Bush07" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Bush08" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Bush09" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Bush10" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Bush11" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Bush12" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Bush13" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Bush14" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Bush15" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Bush16" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Bush17" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Bush18" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Bush19" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Bush20" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Bush21" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Bush22" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Bush23" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Bush24" prob="0.001" rotatemax="7" />
+
+		</append>
+
+
+	</config>
+</configs>

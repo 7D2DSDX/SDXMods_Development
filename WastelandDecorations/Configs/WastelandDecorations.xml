@@ -1,0 +1,180 @@
+<configs>
+	<!--  This tells SDX to add to the blocks.xml -->
+	<config name="blocks">	
+		<!-- This tells SDX to add the following block to the bottom of the block list -->
+		<append xpath="/blocks">	
+			<block id="" name="TreeDead10">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#BurnForest?TreeDead10" />
+				<drop event="Harvest" name="wood" count="10" tool_category="harvestingTools" />
+				<drop event="Harvest" name="coal" count="2" prob=".01" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="TreeDead11">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#BurnForest?TreeDead11" />
+				<drop event="Harvest" name="wood" count="10" tool_category="harvestingTools" />
+				<drop event="Harvest" name="coal" count="2" prob=".01" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="TreeDead12">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#BurnForest?TreeDead12" />
+				<drop event="Harvest" name="wood" count="10" tool_category="harvestingTools" />
+				<drop event="Harvest" name="coal" count="2" prob=".01" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="TreeDead13">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#BurnForest?TreeDead13" />
+				<drop event="Harvest" name="wood" count="10" tool_category="harvestingTools" />
+				<drop event="Harvest" name="coal" count="2" prob=".01" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="TreeDead14">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#BurnForest?TreeDead14" />
+				<drop event="Harvest" name="wood" count="10" tool_category="harvestingTools" />
+				<drop event="Harvest" name="coal" count="2" prob=".01" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="TreeDead15">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#BurnForest?TreeDead15" />
+				<drop event="Harvest" name="wood" count="10" tool_category="harvestingTools" />
+				<drop event="Harvest" name="coal" count="2" prob=".01" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="TreeDead16">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#BurnForest?TreeDead16" />
+				<drop event="Harvest" name="wood" count="10" tool_category="harvestingTools" />
+				<drop event="Harvest" name="coal" count="2" prob=".01" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="TreeDead17">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#BurnForest?TreeDead17" />
+				<drop event="Harvest" name="wood" count="10" tool_category="harvestingTools" />
+				<drop event="Harvest" name="coal" count="2" prob=".01" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="TreeDead18">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#BurnForest?TreeDead18" />
+				<drop event="Harvest" name="wood" count="10" tool_category="harvestingTools" />
+				<drop event="Harvest" name="coal" count="2" prob=".01" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="TreeDead19">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#BurnForest?TreeDead19" />
+				<drop event="Harvest" name="wood" count="10" tool_category="harvestingTools" />
+				<drop event="Harvest" name="coal" count="2" prob=".01" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="TreeDead1">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#BurnForest?TreeDead1" />
+				<drop event="Harvest" name="wood" count="10" tool_category="harvestingTools" />
+				<drop event="Harvest" name="coal" count="2" prob=".01" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="TreeDead20">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#BurnForest?TreeDead20" />
+				<drop event="Harvest" name="wood" count="10" tool_category="harvestingTools" />
+				<drop event="Harvest" name="coal" count="2" prob=".01" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="TreeDead2">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#BurnForest?TreeDead2" />
+				<drop event="Harvest" name="wood" count="10" tool_category="harvestingTools" />
+				<drop event="Harvest" name="coal" count="2" prob=".01" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="TreeDead3">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#BurnForest?TreeDead3" />
+				<drop event="Harvest" name="wood" count="10" tool_category="harvestingTools" />
+				<drop event="Harvest" name="coal" count="2" prob=".01" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="TreeDead4">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#BurnForest?TreeDead4" />
+				<drop event="Harvest" name="wood" count="10" tool_category="harvestingTools" />
+				<drop event="Harvest" name="coal" count="2" prob=".01" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="TreeDead5">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#BurnForest?TreeDead5" />
+				<drop event="Harvest" name="wood" count="10" tool_category="harvestingTools" />
+				<drop event="Harvest" name="coal" count="2" prob=".01" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="TreeDead6">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#BurnForest?TreeDead6" />
+				<drop event="Harvest" name="wood" count="10" tool_category="harvestingTools" />
+				<drop event="Harvest" name="coal" count="2" prob=".01" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="TreeDead7">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#BurnForest?TreeDead7" />
+				<drop event="Harvest" name="wood" count="10" tool_category="harvestingTools" />
+				<drop event="Harvest" name="coal" count="2" prob=".01" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="TreeDead8">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#BurnForest?TreeDead8" />
+				<drop event="Harvest" name="wood" count="10" tool_category="harvestingTools" />
+				<drop event="Harvest" name="coal" count="2" prob=".01" tool_category="harvestingTools" />
+			</block>
+			<block id="" name="TreeDead9">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#BurnForest?TreeDead9" />
+				<drop event="Harvest" name="wood" count="10" tool_category="harvestingTools" />
+				<drop event="Harvest" name="coal" count="2" prob=".01" tool_category="harvestingTools" />
+			</block>
+
+
+		</append>
+	</config>
+
+	<config name="biomes">
+		<append xpath="/worldgeneration/biomes/biome[@name='wasteland']/decorations">	
+			<decoration type="block" blockname="TreeDead10" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead11" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead12" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead13" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead14" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead15" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead16" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead17" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead18" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead19" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead1" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead20" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead2" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead3" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead4" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead5" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead6" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead7" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead8" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead9" prob="0.001" rotatemax="7" />
+
+		</append>
+
+	<append xpath="/worldgeneration/biomes/biome[@name='burnt_forest']/decorations">	
+			<decoration type="block" blockname="TreeDead10" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead11" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead12" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead13" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead14" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead15" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead16" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead17" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead18" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead19" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead1" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead20" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead2" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead3" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead4" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead5" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead6" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead7" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead8" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="TreeDead9" prob="0.001" rotatemax="7" />
+
+		</append>
+	</config>
+</configs>

@@ -1,0 +1,69 @@
+<configs>
+	<!--  This tells SDX to add to the blocks.xml -->
+	<config name="blocks">	
+		<!-- This tells SDX to add the following block to the bottom of the block list -->
+		<append xpath="/blocks">	
+			<block id="" name="Cactus01">
+				<property name="Extends" value="treeCactus01" />
+				<property name="Model" value="#DesertCactus?Cactus01" />
+			</block>
+			<block id="" name="Cactus02">
+				<property name="Extends" value="treeCactus01" />
+				<property name="Model" value="#DesertCactus?Cactus02" />
+			</block>
+			<block id="" name="Cactus03">
+				<property name="Extends" value="treeCactus01" />
+				<property name="Model" value="#DesertCactus?Cactus03" />
+			</block>
+			<block id="" name="Cactus04">
+				<property name="Extends" value="treeCactus01" />
+				<property name="Model" value="#DesertCactus?Cactus04" />
+			</block>
+			<block id="" name="Cactus05">
+				<property name="Extends" value="treeCactus01" />
+				<property name="Model" value="#DesertCactus?Cactus05" />
+			</block>
+			<block id="" name="Cactus06">
+				<property name="Extends" value="treeCactus01" />
+				<property name="Model" value="#DesertCactus?Cactus06" />
+			</block>
+			<block id="" name="Cactus07">
+				<property name="Extends" value="treeCactus01" />
+				<property name="Model" value="#DesertCactus?Cactus07" />
+			</block>
+			<block id="" name="Cactus08">
+				<property name="Extends" value="treeCactus01" />
+				<property name="Model" value="#DesertCactus?Cactus08" />
+			</block>
+			<block id="" name="Cactus09">
+				<property name="Extends" value="treeCactus01" />
+				<property name="Model" value="#DesertCactus?Cactus09" />
+			</block>
+			<block id="" name="Cactus10">
+				<property name="Extends" value="treeCactus01" />
+				<property name="Model" value="#DesertCactus?Cactus10" />
+			</block>
+
+
+		</append>
+	</config>
+
+	<config name="biomes">
+		<append xpath="/worldgeneration/biomes/biome[@name='desert']/decorations">	
+			<decoration type="block" blockname="Cactus01" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Cactus02" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Cactus03" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Cactus04" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Cactus05" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Cactus06" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Cactus07" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Cactus08" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Cactus09" prob="0.001" rotatemax="7" />
+			<decoration type="block" blockname="Cactus10" prob="0.001" rotatemax="7" />
+
+
+		</append>
+
+
+	</config>
+</configs>

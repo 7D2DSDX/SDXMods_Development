@@ -1,0 +1,187 @@
+<configs>
+	<!--  This tells SDX to add to the blocks.xml -->
+	<config name="blocks">	
+		<!-- This tells SDX to add the following block to the bottom of the block list -->
+		<append xpath="/blocks">	
+			<block id="" name="PowerPole01">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#PowerPoles?PowerPole01" />
+				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
+				<drop event="Harvest" name="electricParts" count="1,4" tool_category="Disassemble" />
+				<drop event="Harvest" name="electronicParts" count="0,1" tool_category="Disassemble" />
+			</block>
+			<block id="" name="PowerPoles02">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#PowerPoles?PowerPoles02" />
+				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
+				<drop event="Harvest" name="electricParts" count="1,4" tool_category="Disassemble" />
+				<drop event="Harvest" name="electronicParts" count="0,1" tool_category="Disassemble" />
+			</block>
+			<block id="" name="PowerPoles03">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#PowerPoles?PowerPoles03" />
+				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
+				<drop event="Harvest" name="electricParts" count="1,4" tool_category="Disassemble" />
+				<drop event="Harvest" name="electronicParts" count="0,1" tool_category="Disassemble" />
+			</block>
+			<block id="" name="PowerPoles04">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#PowerPoles?PowerPoles04" />
+				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
+				<drop event="Harvest" name="electricParts" count="1,4" tool_category="Disassemble" />
+				<drop event="Harvest" name="electronicParts" count="0,1" tool_category="Disassemble" />
+			</block>
+			<block id="" name="PowerPoles05">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#PowerPoles?PowerPoles05" />
+				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
+				<drop event="Harvest" name="electricParts" count="1,4" tool_category="Disassemble" />
+				<drop event="Harvest" name="electronicParts" count="0,1" tool_category="Disassemble" />
+			</block>
+			<block id="" name="PowerPoles06">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#PowerPoles?PowerPoles06" />
+				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
+				<drop event="Harvest" name="electricParts" count="1,4" tool_category="Disassemble" />
+				<drop event="Harvest" name="electronicParts" count="0,1" tool_category="Disassemble" />
+			</block>
+			<block id="" name="PowerPoles07">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#PowerPoles?PowerPoles07" />
+				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
+				<drop event="Harvest" name="electricParts" count="1,4" tool_category="Disassemble" />
+				<drop event="Harvest" name="electronicParts" count="0,1" tool_category="Disassemble" />
+			</block>
+			<block id="" name="PowerPoles08">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#PowerPoles?PowerPoles08" />
+				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
+				<drop event="Harvest" name="electricParts" count="1,4" tool_category="Disassemble" />
+				<drop event="Harvest" name="electronicParts" count="0,1" tool_category="Disassemble" />
+			</block>
+			<block id="" name="PowerPoles09">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#PowerPoles?PowerPoles09" />
+				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
+				<drop event="Harvest" name="electricParts" count="1,4" tool_category="Disassemble" />
+				<drop event="Harvest" name="electronicParts" count="0,1" tool_category="Disassemble" />
+			</block>
+			<block id="" name="PowerPoles10">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#PowerPoles?PowerPoles10" />
+				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
+				<drop event="Harvest" name="electricParts" count="1,4" tool_category="Disassemble" />
+				<drop event="Harvest" name="electronicParts" count="0,1" tool_category="Disassemble" />
+			</block>
+			<block id="" name="PowerPoles11">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#PowerPoles?PowerPoles11" />
+				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
+				<drop event="Harvest" name="electricParts" count="1,4" tool_category="Disassemble" />
+				<drop event="Harvest" name="electronicParts" count="0,1" tool_category="Disassemble" />
+			</block>
+			<block id="" name="PowerPoles12">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#PowerPoles?PowerPoles12" />
+				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
+				<drop event="Harvest" name="electricParts" count="1,4" tool_category="Disassemble" />
+				<drop event="Harvest" name="electronicParts" count="0,1" tool_category="Disassemble" />
+			</block>
+			<block id="" name="PowerPoles13">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#PowerPoles?PowerPoles13" />
+				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
+				<drop event="Harvest" name="electricParts" count="1,4" tool_category="Disassemble" />
+				<drop event="Harvest" name="electronicParts" count="0,1" tool_category="Disassemble" />
+			</block>
+			<block id="" name="PowerPoles14">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#PowerPoles?PowerPoles14" />
+				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
+				<drop event="Harvest" name="electricParts" count="1,4" tool_category="Disassemble" />
+				<drop event="Harvest" name="electronicParts" count="0,1" tool_category="Disassemble" />
+			</block>
+			<block id="" name="PowerPoles15">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#PowerPoles?PowerPoles15" />
+				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
+				<drop event="Harvest" name="electricParts" count="1,4" tool_category="Disassemble" />
+				<drop event="Harvest" name="electronicParts" count="0,1" tool_category="Disassemble" />
+			</block>
+			<block id="" name="PowerPoles16">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#PowerPoles?PowerPoles16" />
+				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
+				<drop event="Harvest" name="electricParts" count="1,4" tool_category="Disassemble" />
+				<drop event="Harvest" name="electronicParts" count="0,1" tool_category="Disassemble" />
+			</block>
+			<block id="" name="PowerPoles17">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#PowerPoles?PowerPoles17" />
+				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
+				<drop event="Harvest" name="electricParts" count="1,4" tool_category="Disassemble" />
+				<drop event="Harvest" name="electronicParts" count="0,1" tool_category="Disassemble" />
+			</block>
+			<block id="" name="PowerPoles18">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#PowerPoles?PowerPoles18" />
+				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
+				<drop event="Harvest" name="electricParts" count="1,4" tool_category="Disassemble" />
+				<drop event="Harvest" name="electronicParts" count="0,1" tool_category="Disassemble" />
+			</block>
+			<block id="" name="PowerPoles19">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#PowerPoles?PowerPoles19" />
+				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
+				<drop event="Harvest" name="electricParts" count="1,4" tool_category="Disassemble" />
+				<drop event="Harvest" name="electronicParts" count="0,1" tool_category="Disassemble" />
+			</block>
+			<block id="" name="PowerPoles20">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#PowerPoles?PowerPoles20" />
+				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
+				<drop event="Harvest" name="electricParts" count="1,4" tool_category="Disassemble" />
+				<drop event="Harvest" name="electronicParts" count="0,1" tool_category="Disassemble" />
+			</block>
+			<block id="" name="PowerPoles21">
+				<property name="Extends" value="treeMaster" />
+				<property name="Model" value="#PowerPoles?PowerPoles21" />
+				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
+				<drop event="Harvest" name="electricParts" count="1,4" tool_category="Disassemble" />
+				<drop event="Harvest" name="electronicParts" count="0,1" tool_category="Disassemble" />
+			</block>
+
+
+
+		</append>
+	</config>
+
+	<config name="biomes">
+		<append xpath="/worldgeneration/biomes/biome[@name='desert']/decorations">	
+			<decoration type="block" blockname="PowerPole01" prob="0.0001" rotatemax="7" />
+			<decoration type="block" blockname="PowerPoles02" prob="0.0001" rotatemax="7" />
+			<decoration type="block" blockname="PowerPoles03" prob="0.0001" rotatemax="7" />
+			<decoration type="block" blockname="PowerPoles04" prob="0.0001" rotatemax="7" />
+			<decoration type="block" blockname="PowerPoles05" prob="0.0001" rotatemax="7" />
+			<decoration type="block" blockname="PowerPoles06" prob="0.0001" rotatemax="7" />
+			<decoration type="block" blockname="PowerPoles07" prob="0.0001" rotatemax="7" />
+			<decoration type="block" blockname="PowerPoles08" prob="0.0001" rotatemax="7" />
+			<decoration type="block" blockname="PowerPoles09" prob="0.0001" rotatemax="7" />
+			<decoration type="block" blockname="PowerPoles10" prob="0.0001" rotatemax="7" />
+			<decoration type="block" blockname="PowerPoles11" prob="0.0001" rotatemax="7" />
+			<decoration type="block" blockname="PowerPoles12" prob="0.0001" rotatemax="7" />
+			<decoration type="block" blockname="PowerPoles13" prob="0.0001" rotatemax="7" />
+			<decoration type="block" blockname="PowerPoles14" prob="0.0001" rotatemax="7" />
+			<decoration type="block" blockname="PowerPoles15" prob="0.0001" rotatemax="7" />
+			<decoration type="block" blockname="PowerPoles16" prob="0.0001" rotatemax="7" />
+			<decoration type="block" blockname="PowerPoles17" prob="0.0001" rotatemax="7" />
+			<decoration type="block" blockname="PowerPoles18" prob="0.0001" rotatemax="7" />
+			<decoration type="block" blockname="PowerPoles19" prob="0.0001" rotatemax="7" />
+			<decoration type="block" blockname="PowerPoles20" prob="0.0001" rotatemax="7" />
+			<decoration type="block" blockname="PowerPoles21" prob="0.0001" rotatemax="7" />
+
+		</append>
+
+
+	</config>
+</configs>

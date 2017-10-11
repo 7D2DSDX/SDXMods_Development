@@ -1,0 +1,37 @@
+<configs>
+	<!--  This tells SDX to add to the blocks.xml -->
+	<config name="blocks">	
+		<!-- This tells SDX to add the following block to the bottom of the block list -->
+		<append xpath="/blocks">	
+			<block id="" name="CrackedGround">
+				<property name="Extends" value="dirt" />
+				<property name="Model" value="#SummerDecorations?CrackedGround" />
+			</block>
+			<block id="" name="HardGround">
+				<property name="Extends" value="dirt" />
+				<property name="Model" value="#SummerDecorations?HardGround" />
+			</block>
+			<block id="" name="RoughGround">
+				<property name="Extends" value="dirt" />
+				<property name="Model" value="#SummerDecorations?RoughGround" />
+			</block>
+			<block id="" name="SandGround">
+				<property name="Extends" value="sand" />
+				<property name="Model" value="#SummerDecorations?SandGround" />
+			</block>
+
+
+
+
+		</append>
+	</config>
+
+	<config name="biomes">
+		<append xpath="/worldgeneration/biomes/biome[@name='desert']/decorations">	
+
+
+		</append>
+
+
+	</config>
+</configs>

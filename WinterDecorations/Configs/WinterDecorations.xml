@@ -5,147 +5,147 @@
 		<append xpath="/blocks">	
 			<block id="" name="WinterBirch2">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterBirch2" />
+				<property name="Model" value="#WinterDecorations?WinterBirch2" />
 				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterBirch3">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterBirch3" />
+				<property name="Model" value="#WinterDecorations?WinterBirch3" />
 				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterBirch">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterBirch" />
+				<property name="Model" value="#WinterDecorations?WinterBirch" />
 				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterBranch2">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterBranch2" />
+				<property name="Model" value="#WinterDecorations?WinterBranch2" />
 				<drop event="Harvest" name="wood" count="1,4" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterBranch3">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterBranch3" />
+				<property name="Model" value="#WinterDecorations?WinterBranch3" />
 				<drop event="Harvest" name="wood" count="1,4" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterBranch4">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterBranch4" />
+				<property name="Model" value="#WinterDecorations?WinterBranch4" />
 				<drop event="Harvest" name="wood" count="1,4" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterBranch5">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterBranch5" />
+				<property name="Model" value="#WinterDecorations?WinterBranch5" />
 				<drop event="Harvest" name="wood" count="1,4" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterBranch">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterBranch" />
+				<property name="Model" value="#WinterDecorations?WinterBranch" />
 				<drop event="Harvest" name="wood" count="1,4" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterBrokenTree1">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterBrokenTree1" />
+				<property name="Model" value="#WinterDecorations?WinterBrokenTree1" />
 				<drop event="Harvest" name="wood" count="10" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterBrokenTree2">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterBrokenTree2" />
+				<property name="Model" value="#WinterDecorations?WinterBrokenTree2" />
 				<drop event="Harvest" name="wood" count="10" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterBrokenTree3">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterBrokenTree3" />
+				<property name="Model" value="#WinterDecorations?WinterBrokenTree3" />
 				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterBrokenTree4">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterBrokenTree4" />
+				<property name="Model" value="#WinterDecorations?WinterBrokenTree4" />
 				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterBush1">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterBush1" />
+				<property name="Model" value="#WinterDecorations?WinterBush1" />
 				<drop event="Harvest" name="wood" count="1,4" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterBush2">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterBush2" />
+				<property name="Model" value="#WinterDecorations?WinterBush2" />
 				<drop event="Harvest" name="wood" count="1,4" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterBush3">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterBush3" />
+				<property name="Model" value="#WinterDecorations?WinterBush3" />
 				<drop event="Harvest" name="wood" count="1,4" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterBush4">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterBush4" />
+				<property name="Model" value="#WinterDecorations?WinterBush4" />
 				<drop event="Harvest" name="wood" count="1,4" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterConifer1">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterConifer1" />
+				<property name="Model" value="#WinterDecorations?WinterConifer1" />
 				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterConifer2">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterConifer2" />
+				<property name="Model" value="#WinterDecorations?WinterConifer2" />
 				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterConifer3">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterConifer3" />
+				<property name="Model" value="#WinterDecorations?WinterConifer3" />
 				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterPineTree1">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterPineTree1" />
+				<property name="Model" value="#WinterDecorations?WinterPineTree1" />
 				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterPineTree2">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterPineTree2" />
+				<property name="Model" value="#WinterDecorations?WinterPineTree2" />
 				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterTree1">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterTree1" />
+				<property name="Model" value="#WinterDecorations?WinterTree1" />
 				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterTree2">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterTree2" />
+				<property name="Model" value="#WinterDecorations?WinterTree2" />
 				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterTree3">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterTree3" />
+				<property name="Model" value="#WinterDecorations?WinterTree3" />
 				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterTree4">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterTree4" />
+				<property name="Model" value="#WinterDecorations?WinterTree4" />
 				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterTree5">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterTree5" />
+				<property name="Model" value="#WinterDecorations?WinterTree5" />
 				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterTreeScene2">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterTreeScene2" />
+				<property name="Model" value="#WinterDecorations?WinterTreeScene2" />
 				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterTreeScene3">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterTreeScene3" />
+				<property name="Model" value="#WinterDecorations?WinterTreeScene3" />
 				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
 			</block>
 			<block id="" name="WinterTreeScene">
 				<property name="Extends" value="treeMaster" />
-				<property name="Model" value="#WinterWonderLand?WinterTreeScene" />
+				<property name="Model" value="#WinterDecorations?WinterTreeScene" />
 				<drop event="Harvest" name="wood" count="30" tool_category="harvestingTools" />
 			</block>
 
