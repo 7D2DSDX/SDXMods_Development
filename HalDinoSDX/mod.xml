@@ -1,0 +1,16 @@
+<mod>
+	<info>
+		<author>HAL9000</author>
+		<name>HalDino</name>
+		<description>Demo of how to add a custom entity with collisions</description>
+		<mod_version>1.0</mod_version>
+		<game_version>14.7</game_version>
+		<launcher_version>0.5.5</launcher_version>
+	</info>
+	
+	
+	<config_mods>
+		<import file="Configs\HalDino.xml" />
+	</config_mods>
+	
+</mod>
