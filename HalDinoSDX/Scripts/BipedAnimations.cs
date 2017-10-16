@@ -9,13 +9,13 @@ public class BipedAnimations : MonoBehaviour, IAvatarController
 
     public Transform UpperBody;
 
-    private const string Idle1 = "Idle1";
-    private const string Idle2 = "Idle2";
-    private const string Attack1 = "Attack1";
-    private const string Attack2 = "Attack2";
-    private const string Pain = "Pain";
+    private const string Idle1 = "Idle";
+    private const string Idle2 = "Idle";
+    private const string Attack1 = "Attack(2)";
+    private const string Attack2 = "Attack(3)";
+    private const string Pain = "Get_Hit";
     private const string Jump = "Jump";
-    private const string Death = "Death";
+    private const string Death = "Dead";
     private const string Run = "Run";
     private const string Walk = "Walk";
 
@@ -80,7 +80,7 @@ public class BipedAnimations : MonoBehaviour, IAvatarController
 
             //if you're using A14 or haven't set specific tags for the collision in Unity un-comment this and it will set them all to being body contacts
             //using this method means things like head shot multiplers won't work but it will enable basic collision
-            //AddTagRecursively(this.ModelTransform, "E_BP_Body");
+            AddTagRecursively(this.ModelTransform, "E_BP_Body");
 
 
 
@@ -89,7 +89,6 @@ public class BipedAnimations : MonoBehaviour, IAvatarController
 
             List<string> anims = new List<string>(); // { Idle1, Idle2, Attack1, Attack2, Pain, Jump, Death, Run, Walk };
             anims.Add(Idle1);
-            anims.Add(Idle2);
             anims.Add(Attack1);
             anims.Add(Attack2);
             anims.Add(Pain);

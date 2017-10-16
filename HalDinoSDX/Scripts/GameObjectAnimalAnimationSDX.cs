@@ -11,12 +11,12 @@ using UnityEngine;
 public class GameObjectAnimalAnimationSDX : MonoBehaviour, IAvatarController
 {
     private const string Idle1 = "Idle";
-    private const string Idle2 = "Eating";
-    private const string Attack1 = "Attack";
-    private const string Attack2 = "Attack";
-    private const string Pain = "Creeping";
-    private const string Jump = "Jumping";
-    private const string Death = "Death";
+    private const string Idle2 = "Idle";
+    private const string Attack1 = "Attack(2)";
+    private const string Attack2 = "Attack(3)";
+    private const string Pain = "Get_Hit";
+    private const string Jump = "Jump";
+    private const string Death = "Dead";
     private const string Run = "Run";
     private const string Walk = "Walk";
     private EntityAlive entityAlive;
