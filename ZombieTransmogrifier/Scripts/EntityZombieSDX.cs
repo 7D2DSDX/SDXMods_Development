@@ -16,12 +16,16 @@ public class EntityZombieSDX: EntityZombie
     // Frequency of check to determine the light level.
     public static float CheckDelay = 1f;
 
+    public static float WalkTypeDelay = 10f;
+    public float NextWalkCheck = 0;
+
     public static System.Random random = new System.Random();
 
     // Caching the walk types and approach speed
     private int intWalkType = 0;
     private float flApproachSpeed = 0.0f;
     private float flEyeHeight = 0.0f;
+
     // set to true if you want the zombies to run in the dark.
     bool blRunInDark = false;
 
@@ -40,6 +44,14 @@ public class EntityZombieSDX: EntityZombie
         if (random.Next(100) <= 5)
             blRunInDark = true;
         
+		GetWalkType();
+		GetApproachSpeed();
+
+        EntityClass entityClass = EntityClass.list[_entityClass];
+        if (entityClass.Properties.Values.ContainsKey("JumpDistance"))
+            float.TryParse( entityClass.Properties.Values["JumpDistance"], out this.jumpMotionYValue );
+
+
     }
     // Returns a random walk type for the spawned entity
     public static int GetRandomWalkType()
@@ -90,26 +102,6 @@ public class EntityZombieSDX: EntityZombie
         float minSpeed = 0.0f;
         float maxSpeed = 0.3f;
 
-        // Grab the primary player's game stage, then divide it by 500. This will count how many times 500 goes into the 
-        // gamestage level. We'll use this number as a multiplier base to bump the minimum and maxmum speed of the zombies.
-        /*  
-         *  At Game Stage 537, the gameStageValue would be 1.074, then we multiply it by 0.1f to get a speed boost of 0.1074f to the minSpeed and maxSpeed
-         *  which effective gives the zombie a random multiplier of between 0.1074 to 0.4f, rather than the default of 0.0f to 0.3f.
-         *  
-         *  At Game Stage 3,000, the gameStageValule would be 6, multiplied by 0.1f to give the min and max speed boost of a 0.6. 
-         *  
-         */
-        EntityPlayerLocal player = this.world.GetPrimaryPlayer();
-        float gameStageValue = player.gameStage / 500;
-
-        // uncomment the minSpeed if you want to raise the minimum walk speed for higher game stages.
-        // minSpeed += gameStageValue * 0.1f;
-        maxSpeed += gameStageValue * 0.1f;
-
-        // We want to cap the low and top ends. The maxSpeed is the fatest speed boost possible.
-        minSpeed = Math.Max(minSpeed, 0.0f);
-        maxSpeed = Math.Min(maxSpeed, 1.0f);
-
         // Grabs a random multiplier for the speed
         float fRandomMultiplier = UnityEngine.Random.Range(minSpeed, maxSpeed);
 
@@ -120,10 +112,10 @@ public class EntityZombieSDX: EntityZombie
         {
             // Rnadomize the zombie speeds types If you have the blRunInDark set to true, then it'll randomize it too.
             if (blRunInDark && this.world.IsDark() || lightLevel < EntityZombieSDX.LightThreshold || this.Health < this.GetMaxHealth() * 0.4)
+            {
                 flApproachSpeed = this.speedApproachNight + fRandomMultiplier;
-
-            // If it's night time, then use the speedApproachNight value
-            if (this.world.IsDark())
+            }
+            else if (this.world.IsDark() )
                 flApproachSpeed = this.speedApproachNight + fRandomMultiplier;
             else
                 flApproachSpeed = this.speedApproach + fRandomMultiplier;
@@ -149,18 +141,15 @@ public class EntityZombieSDX: EntityZombie
             return intWalkType;
 
         // Grab a random walk type, and store it for this instance.
-        intWalkType = EntityZombieSDX.GetRandomWalkType();
-
-        // Add another randomess twist for a crouching zombie, by default, it'll be a 1 in 10 chance of crouching.
-        // Reducer the number range if you want them to be more abundant. The default 3 for selected crouch is just randomly selected.
-        int randomCrouch = random.Next(0, 10);
-        if (randomCrouch == 3)
-            Crouching = true;
+        intWalkType = GetRandomWalkType();
 
         // Grab a random walk type
         return intWalkType;
 
     }
+
+    
+    
 
     // Calls the base class, but also does an update on how much light is on the current entity.
     // This only determines if the zombies run in the dark, if enabled.
@@ -176,8 +165,17 @@ public class EntityZombieSDX: EntityZombie
             if (v.z < 0) v.z -= 1;
             lightLevel = GameManager.Instance.World.ChunkClusters[0].GetLight(v, Chunk.LIGHT_TYPE.SUN);
         }
+    
+        // Check to see if the Zombie should change its walk type, based on the display.
+        if ( NextWalkCheck < Time.time)
+        {
+            NextWalkCheck = Time.time + WalkTypeDelay;
+            intWalkType = 0;
+            GetWalkType();
+        }
+          
 
-    }
+}
 
 }
 
