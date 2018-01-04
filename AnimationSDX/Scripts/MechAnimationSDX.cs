@@ -545,22 +545,15 @@ public class MechAnimationSDX : MonoBehaviour, IAvatarController
     // We want to do some extra checking on the PlayAnimation, to make sure it's valid, that it isn't already playing, etc
     public void PlayAnimation(String strAnimation)
     {
-
-        Log("Testing Animation: " + strAnimation);
-
-        Log("Checking Animation:" + this.anim.ToString());
         // If there's no animation object, don't do anything
         if (this.anim == null)
             return;
 
-        Log("Testing if Animation is already playing...");
         // If this animation is already playing, no need to re-start it.
         if (this.anim.GetCurrentAnimatorStateInfo(0).IsName(strAnimation))
         {
             return;
         }
-
-       // this.anim.Stop();
 
         // Check if the IsValidAnimation is a trigger or just an animation
         if (IsValidTrigger(strAnimation))

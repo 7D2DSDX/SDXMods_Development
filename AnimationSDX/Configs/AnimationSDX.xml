@@ -1,60 +1,42 @@
 <configs>
-	<config name="entityclasses">
-		<append xpath="/entity_classes">
+  <config name="entityclasses">
+    <append xpath="/entity_classes">
 
-			<entity_class name="SDXTemplate" extends="zombieTemplateMale">
-				<!-- For fun, let's use the zombie transmogrifier class -->
-				<!--property name="Class" value="EntityZombieSDX, Mods" /-->
+      <entity_class name="SDXTemplate" extends="zombieTemplateMale">
+        <!-- For fun, let's use the zombie transmogrifier class -->
+        <!--property name="Class" value="EntityZombieSDX, Mods" /-->
 
-				<!-- We are using the Animal Animation, since the BipedAnimation is a bit wonky with the hit animation -->
-				<property name="AvatarController" value="AnimationSDX, Mods" />
+        <!-- We are using the Animal Animation, since the BipedAnimation is a bit wonky with the hit animation -->
+        <property name="AvatarController" value="AnimationSDX, Mods" />
 
-				<!-- With RootMotion true, the zombie just kind of chills out in one place. Set to false to watch it move. -->
-				<property name="RootMotion" value="false" />
+        <!-- With RootMotion true, the zombie just kind of chills out in one place. Set to false to watch it move. -->
+        <property name="RootMotion" value="false" />
 
-				<!-- Baseline Speed is way too slow, so we need to bump it up a notch or 5 -->
-				<property name="WanderSpeed" value="0.8" />
-				<property name="ApproachSpeed" value="0.8" />
-				<property name="NightWanderSpeed" value="0.8" />
-				<property name="NightApproachSpeed" value="1.1" />
-				<property name="HasRagdoll" value="false" />
-			</entity_class>
-			
-			
-				<entity_class name="RedDragon" extends="SDXTemplate" >
-				<property name="Mesh" value="#RedDragon?RedDragon" />
-          <property name="AvatarController" value="MechAnimationSDX, Mods" />
+        <!-- Baseline Speed is way too slow, so we need to bump it up a notch or 5 -->
+        <property name="WanderSpeed" value="0.8" />
+        <property name="ApproachSpeed" value="0.8" />
+        <property name="NightWanderSpeed" value="0.8" />
+        <property name="NightApproachSpeed" value="1.1" />
+        <property name="HasRagdoll" value="false" />
+      </entity_class>
 
-          <!-- These are the animation map names. The value comes from the animation from Unity -->
-				<property name="AnimationIdle" value="Idle" />
-				<property name="AnimationSecondIdle" value="Scream" />
-				<property name="AnimationMainAttack" value="Basic Attack" />
-				<property name="AnimationSecondAttack" value="Flame Attack" />
-				<property name="AnimationPain" value="Get Hit" />
-				<property name="AnimationJump" value="Take Off" />
-				<property name="AnimationDeath" value="Die" />
-				<property name="AnimationRun" value="Run" />
-				<property name="AnimationWalk" value="Walk" />
-          <property name="AITask-1" value="ApproachAndAttackTarget" param1="EntityZombie" />
 
-        </entity_class>
-
-   
-
-      <entity_class name="MotusMan" extends="SDXTemplate" >
-        <property name="Mesh" value="#MotusMan?MotusMan_v2" />
+      <entity_class name="RedDragon" extends="SDXTemplate" >
+        <property name="Mesh" value="#RedDragon?RedDragon" />
         <property name="AvatarController" value="MechAnimationSDX, Mods" />
 
         <!-- These are the animation map names. The value comes from the animation from Unity -->
-        <property name="AnimationIdle" value="Zombie_Idle_1-v2" />
-        <property name="AnimationMainAttack" value="Zombie_Atk_Loop_1" />
-        <property name="AnimationSecondAttack" value="Zombie_Reach_1" />
-      
-        <property name="AnimationDeath" value="Zombie_Death_Back_Mid_1" />
-        <property name="AnimationRun" value="Zombie_Chase_1_Loop" />
-        <property name="AnimationWalk" value="Zombie_Walk_F_1_Loop" />
-
+        <property name="AnimationIdle" value="Idle" />
+        <property name="AnimationSecondIdle" value="Scream" />
+        <property name="AnimationMainAttack" value="Basic Attack" />
+        <property name="AnimationSecondAttack" value="Flame Attack" />
+        <property name="AnimationPain" value="Get Hit" />
+        <property name="AnimationJump" value="Take Off" />
+        <property name="AnimationDeath" value="Die" />
+        <property name="AnimationRun" value="Run" />
+        <property name="AnimationWalk" value="Walk" />
       </entity_class>
-		</append>
-	</config>
+      
+    </append>
+  </config>
 </configs>

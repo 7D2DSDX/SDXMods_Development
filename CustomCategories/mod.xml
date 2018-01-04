@@ -3,10 +3,10 @@
 		<!-- Information about the Mod, the author and version information -->
 		<!-- These are displayed in the SDX Launcher -->
 		<author>sphereii</author>
-		<name>Craft Lag Fixes</name>
-		<description>Various Tweaks to reduce Crafting Lag, originally found by Jeoshua</description>
+		<name>Custom Categories</name>
+		<description>Custom Categories for Custom Workstations</description>
 		<mod_version>1.1</mod_version>
-		<game_version>16.3</game_version>
+		<game_version>16.4</game_version>
 		<launcher_version>0.0.0</launcher_version>
 	</info>
 	
