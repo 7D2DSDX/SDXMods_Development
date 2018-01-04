@@ -126,6 +126,7 @@ public class MechAnimationSDX : MonoBehaviour, IAvatarController
                 throw (new Exception("Animator Not Found! Wrong class is being used! Try AnimationSDX instead..."));
             }
 
+            Log("Number of Animations: " + this.anim.runtimeAnimatorController.animationClips.Length.ToString() );
             Log("Searching for Root Motion");
             if (this.entityAlive.RootMotion)
             {
@@ -259,7 +260,14 @@ public class MechAnimationSDX : MonoBehaviour, IAvatarController
     // this method checks if the animator has the animation and is currently playing
     public bool isValidAnimation(string strAnimation)
     {
+
+        Log("Checking if Valid Animation: " + strAnimation);
+
         if (this.anim == null)
+            return false;
+
+        // If the animation is empty, don't process it.
+        if (strAnimation == "")
             return false;
 
         // If it's a animation clip or trigger, then we return true
@@ -278,7 +286,12 @@ public class MechAnimationSDX : MonoBehaviour, IAvatarController
 
         foreach (AnimatorControllerParameter param in this.anim.parameters)
         {
-            if (param.name == paramName) return true;
+            if (param.name == paramName)
+            {
+                Log("Animation is a Trigger");
+                return true;
+            }
+               
         }
         return false;
     }
@@ -295,7 +308,10 @@ public class MechAnimationSDX : MonoBehaviour, IAvatarController
         foreach (AnimationClip clip in this.anim.runtimeAnimatorController.animationClips)
         {
             if (clip.name == strAnimation)
+            {
+                Log("Animation is a AnimationClip");
                 return true;
+            }
         }
         return false;
     }
@@ -303,6 +319,7 @@ public class MechAnimationSDX : MonoBehaviour, IAvatarController
     // Check if the animation is valid and if it's currently active. 
     public bool IsValidAndPlaying( String strAnimation )
     {
+
         if ( isValidAnimation( strAnimation ))
         {
             if (this.anim.GetCurrentAnimatorStateInfo(0).IsName(strAnimation))
@@ -528,21 +545,32 @@ public class MechAnimationSDX : MonoBehaviour, IAvatarController
     // We want to do some extra checking on the PlayAnimation, to make sure it's valid, that it isn't already playing, etc
     public void PlayAnimation(String strAnimation)
     {
+
+        Log("Testing Animation: " + strAnimation);
+
+        Log("Checking Animation:" + this.anim.ToString());
         // If there's no animation object, don't do anything
         if (this.anim == null)
             return;
 
+        Log("Testing if Animation is already playing...");
         // If this animation is already playing, no need to re-start it.
-        if (this.anim.GetCurrentAnimatorStateInfo(0).IsName(strAnimation)) 
+        if (this.anim.GetCurrentAnimatorStateInfo(0).IsName(strAnimation))
+        {
             return;
+        }
+
+       // this.anim.Stop();
 
         // Check if the IsValidAnimation is a trigger or just an animation
         if (IsValidTrigger(strAnimation))
         {
+            Log("Animation is a Trigger");
             this.anim.SetTrigger(strAnimation);
         }
         else if (IsAnimationClip( strAnimation))
         {
+            Log("Animation is a Clip: " + strAnimation);
             this.anim.Play(strAnimation);
         }
         return;
@@ -556,7 +584,7 @@ public class MechAnimationSDX : MonoBehaviour, IAvatarController
         if (!this.IsVisible || this.entityAlive == null )
             return;
 
-        if (this.entityAlive.IsDead() && !this.HasDied)
+        if (this.entityAlive.IsDead() && this.HasDied)
         {
             Log("Update: Entity is Dead");
             this.HasDied = true;
@@ -571,7 +599,6 @@ public class MechAnimationSDX : MonoBehaviour, IAvatarController
             return;
         }   
 
-        Log("Update: Checking if any animations are playing");
         // If an animation is already playing, we don't need to process it any more until its done.
         if (IsValidAndPlaying(this.AnimationMainAttack))
             return;
@@ -580,10 +607,6 @@ public class MechAnimationSDX : MonoBehaviour, IAvatarController
         if (IsValidAndPlaying(this.AnimationDeath))
             return;
         if (IsValidAndPlaying(this.AnimationPain))
-            return;
-        if (IsValidAndPlaying(this.AnimationIdle))
-            return;
-        if (IsValidAndPlaying(this.AnimationSecondIdle))
             return;
 
         float playerDistanceX = 0.0f;
@@ -619,19 +642,21 @@ public class MechAnimationSDX : MonoBehaviour, IAvatarController
             this.lastPlayerZ = playerDistanceZ;
             this.lastDistance = encroached;
         }
-    
 
+        Log("Encroached distance is: " + encroached);
         // If the entity is still too far away, we need to either walk or run there.
-        if ((encroached > 0.150000005960464))
+        if ((encroached > 0.150000005960464 || isAlwaysWalk))
         {
             // Run to the player or entity unless always walk is false.
-            if (encroached > 1.0 || isAlwaysWalk == false)
+            if (encroached > 1.0 )
             {
+                Log("Runnning!");
                 // Since the encroached is above 1, we want the zombie to run if need be, to get to the player faster.
                 PlayAnimation(this.AnimationRun);
             }
             else
             {
+                Log("walking");
                 PlayAnimation(this.AnimationWalk);
             }
 
@@ -643,6 +668,7 @@ public class MechAnimationSDX : MonoBehaviour, IAvatarController
         else
         {
             // Idle if we don't need to run or walk anywhere
+            Log("Idling as default");
             PlayAnimation(this.AnimationIdle);
         }
     }
