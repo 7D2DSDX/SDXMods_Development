@@ -101,12 +101,14 @@ public class MechAnimationSDX : MonoBehaviour, IAvatarController
             {
                 Log(" !! Graphics Transform null!");
                 this.HasDied = true;
+                return;
             }
             this.ModelTransform = this.GraphicsTransform.Find("Model").GetChild(0);
             if (this.ModelTransform == null)
             {
                 Log(" !! Model Transform is null!");
                 this.HasDied = true;
+                return;
             }
 
             //this bit is important for SDXers! It adds the component that links each collider with the Entity class so hits can be registered.
@@ -126,7 +128,18 @@ public class MechAnimationSDX : MonoBehaviour, IAvatarController
                 throw (new Exception("Animator Not Found! Wrong class is being used! Try AnimationSDX instead..."));
             }
 
-            Log("Number of Animations: " + this.anim.runtimeAnimatorController.animationClips.Length.ToString() );
+            Log("Animator is: " + this.anim.enabled.ToString());
+            
+            this.anim.enabled = true;
+            //else
+            //{
+            //    Log("Loading MyAnimationController");
+            //    RuntimeAnimatorController runtimeAnimController = (RuntimeAnimatorController)Resources.Load("MyAnimationController");
+            //    this.anim.runtimeAnimatorController = runtimeAnimController;
+            //    Log("MyAnimationController Loaded");
+            //}
+
+            //Log("Number of Animations: " + this.anim.runtimeAnimatorController.animationClips.Length.ToString() );
             Log("Searching for Root Motion");
             if (this.entityAlive.RootMotion)
             {
@@ -260,62 +273,27 @@ public class MechAnimationSDX : MonoBehaviour, IAvatarController
     // this method checks if the animator has the animation and is currently playing
     public bool isValidAnimation(string strAnimation)
     {
-
-        Log("Checking if Valid Animation: " + strAnimation);
-
-        if (this.anim == null)
-            return false;
-
-        // If the animation is empty, don't process it.
-        if (strAnimation == "")
-            return false;
-
-        // If it's a animation clip or trigger, then we return true
-        if (IsAnimationClip(strAnimation) || IsValidTrigger(strAnimation))
+        if (this.anim == null || this.anim.parameters == null)
         {
-            return true;
+            Log("WARNING: Animator is invalid or has no Parameters");
+            return false;
         }
 
-        return false;
-    }
-    // This method checks to see if the Animator has a parameter, or rather, an animation called that.
-    public bool IsValidTrigger(string paramName)
-    {
-        if (this.anim == null || this.anim.parameters == null)
-            return false;
-
+        return true;
         foreach (AnimatorControllerParameter param in this.anim.parameters)
         {
-            if (param.name == paramName)
+            if (param.name == strAnimation)
             {
                 Log("Animation is a Trigger");
                 return true;
             }
-               
+
         }
+
+        Log("WARNING: Trigger Name: " + strAnimation + " is not found in the Animator");
         return false;
     }
-
    
-
-    // Searches the Animator object, looking for a valid animation
-    public bool IsAnimationClip( String strAnimation )
-    {
-        if (this.anim == null)
-            return false;
-
-        // Loop around the animation, looking at each of the clips available. If we find a clip, return true
-        foreach (AnimationClip clip in this.anim.runtimeAnimatorController.animationClips)
-        {
-            if (clip.name == strAnimation)
-            {
-                Log("Animation is a AnimationClip");
-                return true;
-            }
-        }
-        return false;
-    }
-
     // Check if the animation is valid and if it's currently active. 
     public bool IsValidAndPlaying( String strAnimation )
     {
@@ -545,27 +523,12 @@ public class MechAnimationSDX : MonoBehaviour, IAvatarController
     // We want to do some extra checking on the PlayAnimation, to make sure it's valid, that it isn't already playing, etc
     public void PlayAnimation(String strAnimation)
     {
-        // If there's no animation object, don't do anything
-        if (this.anim == null)
-            return;
-
         // If this animation is already playing, no need to re-start it.
-        if (this.anim.GetCurrentAnimatorStateInfo(0).IsName(strAnimation))
-        {
+        if (IsValidAndPlaying(strAnimation)) 
             return;
-        }
 
-        // Check if the IsValidAnimation is a trigger or just an animation
-        if (IsValidTrigger(strAnimation))
-        {
-            Log("Animation is a Trigger");
-            this.anim.SetTrigger(strAnimation);
-        }
-        else if (IsAnimationClip( strAnimation))
-        {
-            Log("Animation is a Clip: " + strAnimation);
-            this.anim.Play(strAnimation);
-        }
+        this.anim.SetTrigger(strAnimation);
+
         return;
 
 
@@ -605,8 +568,6 @@ public class MechAnimationSDX : MonoBehaviour, IAvatarController
         float playerDistanceX = 0.0f;
         float playerDistanceZ = 0.0f;
         float encroached = this.lastDistance;
-
-
 
         // Calculates how far away the entity is to determine if we should be running or not.
         playerDistanceX = Mathf.Abs(this.entityAlive.position.x - this.entityAlive.lastTickPos[0].x) * 6f;

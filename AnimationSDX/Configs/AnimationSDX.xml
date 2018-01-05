@@ -37,6 +37,20 @@
         <property name="AnimationWalk" value="Walk" />
       </entity_class>
       
+        <entity_class name="BodyGuard" extends="SDXTemplate" >
+        <property name="Mesh" value="#BodyGuard?SkelMesh_Bodyguard_01" />
+        <property name="AvatarController" value="MechAnimationSDX, Mods" />
+
+        <!-- These are the animation map names. The value comes from the animation from Unity -->
+        <property name="AnimationIdle" value="Idle" />
+        <property name="AnimationMainAttack" value="Attack1" />
+        <property name="AnimationSecondAttack" value="Attack2" />
+        <property name="AnimationPain" value="GetHit" />
+        <property name="AnimationJump" value="Die" />
+        <property name="AnimationDeath" value="Die" />
+        <property name="AnimationRun" value="Run" />
+        <property name="AnimationWalk" value="Walk" />
+      </entity_class>
     </append>
   </config>
 </configs>
