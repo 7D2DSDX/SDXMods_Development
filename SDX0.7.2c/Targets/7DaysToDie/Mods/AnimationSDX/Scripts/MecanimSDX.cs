@@ -36,20 +36,20 @@ class MecanimSDX : MonoBehaviour, IAvatarController
 
   
     // Stores our hashes as ints, since that's what the Animator wants
-    private HashSet<int> AttackHash;
-    private HashSet<int> SpecialAttackHash;
-    private HashSet<int> PainHash;
-    private HashSet<int> DeathHash;
-    private HashSet<int> IdleHash;
-    private HashSet<int> MovementHash;
+    //private HashSet<int> AttackHash;
+    //private HashSet<int> SpecialAttackHash;
+    //private HashSet<int> PainHash;
+    //private HashSet<int> DeathHash;
+    //private HashSet<int> IdleHash;
+    //private HashSet<int> MovementHash;
 
-    // Maintain a list of strings of the same animation
-    private List<String> AttackStrings;
-    private List<String> SpecialAttackStrings;
-    private List<String> PainStrings;
-    private List<String> DeathStrings;
-    private List<String> IdleStrings;
-    private List<String> MovementStrings;
+    //// Maintain a list of strings of the same animation
+    //private List<String> AttackStrings;
+    //private List<String> SpecialAttackStrings;
+    //private List<String> PainStrings;
+    //private List<String> DeathStrings;
+    //private List<String> IdleStrings;
+    //private List<String> MovementStrings;
 
     // used to calculate how far way the player is
     private float lastPlayerX;
@@ -637,7 +637,7 @@ class MecanimSDX : MonoBehaviour, IAvatarController
                 
             }
             bool flag = false;
-            if (this.anim != null && this.isInDeathAnim && this.DeathHash.Contains(this.currentBaseState.fullPathHash) && !this.anim.IsInTransition(0))
+            if (this.anim != null && this.isInDeathAnim && !this.anim.IsInTransition(0)) // this.DeathHash.Contains(this.currentBaseState.fullPathHash) )
             {
                 flag = true;
             }

@@ -40,6 +40,23 @@
         <property name="ApproachSpeed" value="0.8" />
         <property name="NightWanderSpeed" value="0.8" />
         <property name="NightApproachSpeed" value="1.1" />
+
+        <!-- How many animations for each state. If non-specified, it's 0-->
+        <property name="AttackIndexes" value="7" />
+        <property name="SpecialAttackIndexes" value="7" />
+        <property name="SpecialSecondIndexes" value="7" />
+        <property name="RagingIndexes" value="7" />
+        <property name="ElectrocutionIndexes" value="7" />
+        <property name="CrouchIndexes" value="7" />
+        <property name="StunIndexes" value="7" />
+        <property name="SleeperIndexes" value="7" />
+        <property name="HarvestIndexes" value="7" />
+        <property name="PainIndexes" value="7" />
+        <property name="DeathIndexes" value="7" />
+        <property name="RunIndexes" value="7" />
+        <property name="WalkIndexes" value="7" />
+        <property name="IdleIndexes" value="7" />
+        <property name="JumpIndexes" value="7" />
       </entity_class>
     </append>
   </config>
