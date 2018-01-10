@@ -1,0 +1,10 @@
+D:\SDX\7 Days To Die
+C:\7D2D\CraterCreator\ComSenMod
+C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die
+C:\Users\Jeff\Documents\GitHub\WinterProject
+C:\7D2D\Sphereii-mental\WinterProject
+C:\Program Files (x86)\Steam\steamapps\common\7 Days to Die Dedicated Server
+C:\7D2D\Valmar\Valmod_Overhaul
+C:\7D2D\DummyAnim
+C:\SDXModding\a16.4
+C:\SDXModding\game\clientwindows

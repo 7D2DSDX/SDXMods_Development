@@ -1,0 +1,22 @@
+<configs>
+  <config name="entityclasses">
+    <append xpath="/entity_classes">
+      <entity_class name="PolarBear" extends="SDXTemplate" >
+        <property name="Mesh" value="#PolarBear?Polarbear" />
+        <property name="AvatarController" value="MecanimSDX, Mods" />
+
+        <!-- These are the animation map names. The value comes from the animation from Unity -->
+        <property name="AnimationIdle" value="Idle" />
+        <property name="AnimationMainAttack" value="Bite" />
+        <property name="AnimationSecondAttack" value="DoubleSwipe" />
+        <property name="AnimationPain" value="Hit" />
+        <property name="AnimationJump" value="SniffsUp" />
+        <property name="AnimationDeath" value="Die" />
+        <property name="AnimationRun" value="Running" />
+        <property name="AnimationWalk" value="Walk" />
+        <property name="RootMotion" value="true" />
+
+      </entity_class>
+    </append>
+  </config>
+</configs>

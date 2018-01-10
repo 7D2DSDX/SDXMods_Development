@@ -1,0 +1,16 @@
+<mod>
+	<info>
+		<author>sphereii</author>
+		<name>Polar Bear</name>
+		<description>Polar Bear using mecanim</description>
+		<mod_version>1.0</mod_version>
+		<game_version>16.4</game_version>
+		<launcher_version>0.5.5</launcher_version>
+	</info>
+	
+	
+	<config_mods>
+		<import file="Configs\AnimationSDX.xml" />
+	</config_mods>
+	
+</mod>
