@@ -41,7 +41,18 @@
         <property name="NightWanderSpeed" value="0.8" />
         <property name="NightApproachSpeed" value="1.1" />
 
-        <!-- How many animations for each state. If non-specified, it's 0-->
+        <!--        
+         Your attack states 
+         These are used to let the game know if there's an attack animation already playing. If it is, then IsAttackAnimationIsPlay will return true.
+         If these are not listed, then the entity will not attack.
+         
+         All attack animations can be added here, including special attacks, etc.
+        -->
+        <property name="AttackAnimations" value="bp_hook_right_A2,hp_straight_right_A2,hp_upper_right_A2,hk_side_left_A2,hp_straight_right_A2 0" />
+        
+        <!-- How many animations for each state. If non-specified, it's 0 
+          So if you don't have multiple attacks, or don't use the special Index states in your Animator State Machine, then you don't need to set these at all.
+        -->
         <property name="AttackIndexes" value="7" />
         <property name="SpecialAttackIndexes" value="7" />
         <property name="SpecialSecondIndexes" value="7" />
