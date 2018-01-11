@@ -34,22 +34,22 @@ class MecanimSDX : MonoBehaviour, IAvatarController
     protected bool isEating = false;
     private float ActionTime = 0f;
 
-  
-    // Stores our hashes as ints, since that's what the Animator wants
-    //private HashSet<int> AttackHash;
-    //private HashSet<int> SpecialAttackHash;
-    //private HashSet<int> PainHash;
-    //private HashSet<int> DeathHash;
-    //private HashSet<int> IdleHash;
-    //private HashSet<int> MovementHash;
 
-    //// Maintain a list of strings of the same animation
-    //private List<String> AttackStrings;
-    //private List<String> SpecialAttackStrings;
-    //private List<String> PainStrings;
-    //private List<String> DeathStrings;
-    //private List<String> IdleStrings;
-    //private List<String> MovementStrings;
+    // Stores our hashes as ints, since that's what the Animator wants
+    private HashSet<int> AttackHash;
+    private HashSet<int> SpecialAttackHash;
+    private HashSet<int> PainHash;
+    private HashSet<int> DeathHash;
+    private HashSet<int> IdleHash;
+    private HashSet<int> MovementHash;
+
+    // Maintain a list of strings of the same animation
+    private List<String> AttackStrings;
+    private List<String> SpecialAttackStrings;
+    private List<String> PainStrings;
+    private List<String> DeathStrings;
+    private List<String> IdleStrings;
+    private List<String> MovementStrings;
 
     // used to calculate how far way the player is
     private float lastPlayerX;
@@ -84,6 +84,24 @@ class MecanimSDX : MonoBehaviour, IAvatarController
     private int IdleIndexes = 0;
     private int JumpIndexes = 0;
 
+    private HashSet<int> GenerateLists( EntityClass entityClass, String strAnimationType, List<String> list )
+    {
+        list = new List<String>();
+        HashSet<int> hash = new HashSet<int>();
+
+        if (entityClass.Properties.Values.ContainsKey( strAnimationType))
+        {
+            foreach (String strAnimationState in entityClass.Properties.Values[strAnimationType].Split(','))
+            {
+                AttackStrings.Add(strAnimationState.Trim());
+                hash.Add( Animator.StringToHash(strAnimationState));
+
+            }
+        }
+
+        return hash;
+
+    }
     private MecanimSDX()
     {
         this.entityAlive = this.transform.gameObject.GetComponent<EntityAlive>();
@@ -97,6 +115,9 @@ class MecanimSDX : MonoBehaviour, IAvatarController
             this.rightHandItemTransform = FindTransform(this.bipedTransform, this.bipedTransform, RightHand);
         }
 
+        this.AttackHash = GenerateLists(entityClass, "Attacks", this.AttackStrings);
+
+        AttackStrings = new List<String>();
         // The following will read our Index values from the XML to determine the maximum attack animations.
         // The range should be 1-based, meaning a value of 1 will specify the index value 0.
         // <property name="AttackIndexes" value="20", means there are 20 animations, running from 0 to 19
@@ -154,6 +175,7 @@ class MecanimSDX : MonoBehaviour, IAvatarController
         //MovementHash = ConvertAnimationListToHash(MovementHash, "AnimationJump", entityClass, MovementStrings);
     }
 
+   
     // Token: 0x060011F6 RID: 4598 RVA: 0x00081E3C File Offset: 0x0008003C
     private void Awake()
     {
@@ -201,6 +223,9 @@ class MecanimSDX : MonoBehaviour, IAvatarController
                 Log("My Animator Controller is null!");
                 throw (new Exception("Animator Controller is null!"));
             }
+
+         
+            
         }
         catch (Exception ex)
         {
@@ -260,7 +285,7 @@ class MecanimSDX : MonoBehaviour, IAvatarController
     {
         if (!this.isEating)
         {
-            this.anim.SetBool("IsEating", false);
+            this.anim.SetBool("IsEating", true);
             this.isEating = true;
         }
     }
@@ -293,16 +318,16 @@ class MecanimSDX : MonoBehaviour, IAvatarController
         this.anim.SetBool("IsDead", this.entityAlive.IsDead());
         this.anim.SetBool("IsAlive", this.entityAlive.IsAlive());
 
-        // Add in support for animations that can fire weapons
-        if (this.rightHandItemTransform != null)
-        {
-            //Debug.Log("RIGHTHAND ITEM TRANSFORM");
-            this.rightHandItemTransform.parent = this.rightHandItemTransform;
-            Vector3 position = global::AnimationGunjointOffsetData.AnimationGunjointOffset[this.entityAlive.inventory.holdingItem.HoldType.Value].position;
-            Vector3 rotation = global::AnimationGunjointOffsetData.AnimationGunjointOffset[this.entityAlive.inventory.holdingItem.HoldType.Value].rotation;
-            this.rightHandItemTransform.localPosition = position;
-            this.rightHandItemTransform.localEulerAngles = rotation;
-        }
+        //// Add in support for animations that can fire weapons
+        //if (this.rightHandItemTransform != null)
+        //{
+        //    //Debug.Log("RIGHTHAND ITEM TRANSFORM");
+        //    this.rightHandItemTransform.parent = this.rightHandItemTransform;
+        //    Vector3 position = global::AnimationGunjointOffsetData.AnimationGunjointOffset[this.entityAlive.inventory.holdingItem.HoldType.Value].position;
+        //    Vector3 rotation = global::AnimationGunjointOffsetData.AnimationGunjointOffset[this.entityAlive.inventory.holdingItem.HoldType.Value].rotation;
+        //    this.rightHandItemTransform.localPosition = position;
+        //    this.rightHandItemTransform.localEulerAngles = rotation;
+        //}
     }
 
     private void UpdateBaseState()
@@ -313,6 +338,7 @@ class MecanimSDX : MonoBehaviour, IAvatarController
     // Check if the Animation attack is still playing.
     public bool IsAnimationAttackPlaying()
     {
+        Log("IsAnimationAttacKPlaying");
         return this.ActionTime > 0f || (!this.anim.IsInTransition(0));// && this.AttackHash.Contains(this.currentBaseState.fullPathHash));
     }
 
@@ -324,6 +350,7 @@ class MecanimSDX : MonoBehaviour, IAvatarController
             this.ActionTime = 1f;
         }
 
+        Log("Animation Attack");
         // Randomly set the index for the AttackIndex, which allows us different attacks
         SetRandomIndex("AttackIndex");
         this.anim.SetTrigger("Attack");
@@ -767,10 +794,56 @@ class MecanimSDX : MonoBehaviour, IAvatarController
                 trans.gameObject.tag = tag;
         }
 
+
         Log("Transoform Tag: " + trans.name + " : " + trans.tag);
         foreach (Transform t in trans)
             AddTagRecursively(t, tag);
     }
 
-
+  
 }
+
+
+public class AnimationSelect : StateMachineBehaviour
+{
+
+    // OnStateEnter is called before OnStateEnter is called on any state inside this state machine
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        Debug.Log("OnStateEnter!");
+        animator.SetInteger("AttackIndex", UnityEngine.Random.Range(0, 6));
+
+    }
+
+    // OnStateUpdate is called before OnStateUpdate is called on any state inside this state machine
+    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+    //
+    //}
+
+    // OnStateExit is called before OnStateExit is called on any state inside this state machine
+    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+    //
+    //}
+
+    // OnStateMove is called before OnStateMove is called on any state inside this state machine
+    //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+    //
+    //}
+
+    // OnStateIK is called before OnStateIK is called on any state inside this state machine
+    //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+    //
+    //}
+
+    // OnStateMachineEnter is called when entering a statemachine via its Entry Node
+    //override public void OnStateMachineEnter(Animator animator, int stateMachinePathHash){
+    //
+    //}
+
+    // OnStateMachineExit is called when exiting a statemachine via its Exit Node
+    //override public void OnStateMachineExit(Animator animator, int stateMachinePathHash) {
+    //
+    //}
+}
+
+

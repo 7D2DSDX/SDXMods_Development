@@ -1,0 +1,35 @@
+<configs>
+       <config name="entityclasses">
+               <append xpath="/entity_classes">
+					<entity_class name="zombieBehemoth2" extends="SDXTemplate">
+						<property name="Mesh" value="#Behemoth?custom_behemoth" />
+						<!-- These are the animation names in Unity. Do NOT change. -->
+						<property name="AnimationIdle" value="Idle" />
+						<property name="AnimationMainAttack" value="Attack" />
+						<property name="AnimationPain" value="Injured" />
+						<property name="AnimationDeath" value="Death" />
+						<property name="AnimationRun" value="Running" />
+						<property name="AnimationWalk" value="Walking" />
+						<!-- You need Sphereii's SDXTemplate mod. -->
+						<property name="AvatarController" value="AnimationSDX, Mods" />
+						<!-- Needs to be "1" or is too fast. -->
+						<property name="WalkType" value="1" />
+						<!-- Original zombieBehemoth properties -->
+						<property name="SoundRandom" value="Enemies/Base_Zombie_Male2/zombiemale2roam" />
+						<property name="SoundAlert" value="Enemies/Base_Zombie_Male2/zombiemale2alert" />
+						<property name="SoundAttack" value="Enemies/Base_Zombie_Male2/zombiemale2attack" />
+						<property name="SoundHurt" value="Enemies/Base_Zombie_Male2/zombiemale2pain" />
+						<property name="SoundDeath" value="Enemies/Base_Zombie_Male2/zombiemale2death" />
+						<property name="SoundSense" value="Enemies/Base_Zombie_Male2/zombiemale2sense" />
+						<property name="HasDeathAnim" value="true"/>
+						<property name="ReplaceMaterial1" value="entities/zombies/materials/Z_eye1" />
+						<property name="HandItem" value="handZombieBehemoth" />
+						<property name="LootListOnDeath" value="38" />
+						<property name="MaxHealth" value="5" />
+						<property name="DeadBodyHitPoints" value="700" />
+						<property name="ExperienceGain" value="8982"/>
+						<drop event="Harvest" name="rottingFlesh" tool_category="Butcher" count="0" />
+					</entity_class>
+               </append>
+       </config>
+</configs>
