@@ -107,15 +107,22 @@ class MecanimSDX : MonoBehaviour, IAvatarController
         this.entityAlive = this.transform.gameObject.GetComponent<EntityAlive>();
         EntityClass entityClass = EntityClass.list[this.entityAlive.entityClass];
 
-
+        try
+        {
+            AssetBundle assetBundle = new AssetBundle();
+            assetBundle.LoadAsset("AnimationSelect", typeof(AnimationSelect));
+        }
+        catch( Exception ex)
+        {
+            Log("Error loading Asset: " + ex.ToString());
+        }
         // Grabs what Right Hand Joint we have in our XML
         if (entityClass.Properties.Values.ContainsKey("RightHandJointName"))
         {
             this.RightHand = entityClass.Properties.Values["RightHandJointName"];
             this.rightHandItemTransform = FindTransform(this.bipedTransform, this.bipedTransform, RightHand);
         }
-
-        this.AttackHash = GenerateLists(entityClass, "Attacks", this.AttackStrings);
+                this.AttackHash = GenerateLists(entityClass, "Attacks", this.AttackStrings);
 
         AttackStrings = new List<String>();
         // The following will read our Index values from the XML to determine the maximum attack animations.
@@ -844,6 +851,24 @@ public class AnimationSelect : StateMachineBehaviour
     //override public void OnStateMachineExit(Animator animator, int stateMachinePathHash) {
     //
     //}
+}
+
+
+
+
+public class ScriptBundleTest : MonoBehaviour
+{
+    void Start()
+    {
+        AssetBundle assetBundle = new AssetBundle();
+        assetBundle.LoadAsset("AnimationSelect", typeof(AnimationSelect));
+    }
+
+
+    void OnReceiveType(string requestedTypeName, Type type)
+    {
+        gameObject.AddComponent(type);
+    }
 }
 
 
