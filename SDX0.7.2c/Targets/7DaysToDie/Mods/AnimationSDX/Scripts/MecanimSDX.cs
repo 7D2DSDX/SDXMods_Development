@@ -107,79 +107,41 @@ class MecanimSDX : MonoBehaviour, IAvatarController
         this.entityAlive = this.transform.gameObject.GetComponent<EntityAlive>();
         EntityClass entityClass = EntityClass.list[this.entityAlive.entityClass];
 
-        try
-        {
-            AssetBundle assetBundle = new AssetBundle();
-            assetBundle.LoadAsset("AnimationSelect", typeof(AnimationSelect));
-        }
-        catch( Exception ex)
-        {
-            Log("Error loading Asset: " + ex.ToString());
-        }
         // Grabs what Right Hand Joint we have in our XML
         if (entityClass.Properties.Values.ContainsKey("RightHandJointName"))
         {
             this.RightHand = entityClass.Properties.Values["RightHandJointName"];
             this.rightHandItemTransform = FindTransform(this.bipedTransform, this.bipedTransform, RightHand);
         }
-                this.AttackHash = GenerateLists(entityClass, "Attacks", this.AttackStrings);
 
-        AttackStrings = new List<String>();
+        this.AttackHash = GenerateLists(entityClass, "Attacks", this.AttackStrings);
+
+
         // The following will read our Index values from the XML to determine the maximum attack animations.
         // The range should be 1-based, meaning a value of 1 will specify the index value 0.
         // <property name="AttackIndexes" value="20", means there are 20 animations, running from 0 to 19
-        if (entityClass.Properties.Values.ContainsKey("AttackIndexes"))
-           int.TryParse(entityClass.Properties.Values["AttackIndexes"], out this.AttackIndexes);
-        if (entityClass.Properties.Values.ContainsKey("SpecialAttackIndexes"))
-            int.TryParse(entityClass.Properties.Values["SpecialAttackIndexes"], out this.SpecialAttackIndexes);
+        int.TryParse(entityClass.Properties.Values["AttackIndexes"], out this.AttackIndexes);
+        int.TryParse(entityClass.Properties.Values["SpecialAttackIndexes"], out this.SpecialAttackIndexes);
 
-        if (entityClass.Properties.Values.ContainsKey("SpecialSecondIndexes"))
-            int.TryParse(entityClass.Properties.Values["SpecialSecondIndexes"], out this.SpecialSecondIndexes);
-        if (entityClass.Properties.Values.ContainsKey("RagingIndexes"))
-            int.TryParse(entityClass.Properties.Values["RagingIndexes"], out this.RagingIndexes);
+        int.TryParse(entityClass.Properties.Values["SpecialSecondIndexes"], out this.SpecialSecondIndexes);
+        int.TryParse(entityClass.Properties.Values["RagingIndexes"], out this.RagingIndexes);
 
-        if (entityClass.Properties.Values.ContainsKey("ElectrocutionIndexes"))
-            int.TryParse(entityClass.Properties.Values["ElectrocutionIndexes"], out this.ElectrocutionIndexes);
-        if (entityClass.Properties.Values.ContainsKey("CrouchIndexes"))
-            int.TryParse(entityClass.Properties.Values["CrouchIndexes"], out this.CrouchIndexes);
+        int.TryParse(entityClass.Properties.Values["ElectrocutionIndexes"], out this.ElectrocutionIndexes);
+        int.TryParse(entityClass.Properties.Values["CrouchIndexes"], out this.CrouchIndexes);
 
-        if (entityClass.Properties.Values.ContainsKey("StunIndexes"))
-            int.TryParse(entityClass.Properties.Values["StunIndexes"], out this.StunIndexes);
-        if (entityClass.Properties.Values.ContainsKey("SleeperIndexes"))
-            int.TryParse(entityClass.Properties.Values["SleeperIndexes"], out this.SleeperIndexes);
+        int.TryParse(entityClass.Properties.Values["StunIndexes"], out this.StunIndexes);
+        int.TryParse(entityClass.Properties.Values["SleeperIndexes"], out this.SleeperIndexes);
 
-        if (entityClass.Properties.Values.ContainsKey("HarvestIndexes"))
-            int.TryParse(entityClass.Properties.Values["HarvestIndexes"], out this.HarvestIndexes);
-        if (entityClass.Properties.Values.ContainsKey("PainIndexes"))
-            int.TryParse(entityClass.Properties.Values["PainIndexes"], out this.PainIndexes);
+        int.TryParse(entityClass.Properties.Values["HarvestIndexes"], out this.HarvestIndexes);
+        int.TryParse(entityClass.Properties.Values["PainIndexes"], out this.PainIndexes);
 
-        if (entityClass.Properties.Values.ContainsKey("DeathIndexes"))
-            int.TryParse(entityClass.Properties.Values["DeathIndexes"], out this.DeathIndexes);
-        if (entityClass.Properties.Values.ContainsKey("RunIndexes"))
-            int.TryParse(entityClass.Properties.Values["RunIndexes"], out this.RunIndexes);
+        int.TryParse(entityClass.Properties.Values["DeathIndexes"], out this.DeathIndexes);
+        int.TryParse(entityClass.Properties.Values["RunIndexes"], out this.RunIndexes);
 
-        if (entityClass.Properties.Values.ContainsKey("WalkIndexes"))
-            int.TryParse(entityClass.Properties.Values["WalkIndexes"], out this.WalkIndexes);
-        if (entityClass.Properties.Values.ContainsKey("IdleIndexes"))
-            int.TryParse(entityClass.Properties.Values["IdleIndexes"], out this.IdleIndexes);
+        int.TryParse(entityClass.Properties.Values["WalkIndexes"], out this.WalkIndexes);
+        int.TryParse(entityClass.Properties.Values["IdleIndexes"], out this.IdleIndexes);
 
-        if (entityClass.Properties.Values.ContainsKey("JumpIndexes"))
-            int.TryParse(entityClass.Properties.Values["JumpIndexes"], out this.JumpIndexes);
-
-        //AttackHash = ConvertAnimationListToHash(AttackHash, "AnimationMainAttack", entityClass, AttackStrings);
-        //AttackHash = ConvertAnimationListToHash(AttackHash, "AnimationSecondAttack", entityClass, AttackStrings);
-        //AttackHash = ConvertAnimationListToHash(AttackHash, "AnimationSpecialAttack", entityClass, AttackStrings);
-        //AttackHash = ConvertAnimationListToHash(AttackHash, "AnimationSpecialAttack2", entityClass, AttackStrings);
-
-        //PainHash = ConvertAnimationListToHash(PainHash, "AnimationPain", entityClass, PainStrings);
-        //DeathHash = ConvertAnimationListToHash(DeathHash, "AnimationDeath", entityClass, DeathStrings);
-
-        //IdleHash = ConvertAnimationListToHash(IdleHash, "AnimationSecondIdle", entityClass, IdleStrings);
-        //IdleHash = ConvertAnimationListToHash(IdleHash, "AnimationIdle", entityClass, IdleStrings);
-
-        //MovementHash = ConvertAnimationListToHash(MovementHash, "AnimationRun", entityClass, MovementStrings);
-        //MovementHash = ConvertAnimationListToHash(MovementHash, "AnimationWalk", entityClass, MovementStrings);
-        //MovementHash = ConvertAnimationListToHash(MovementHash, "AnimationJump", entityClass, MovementStrings);
+        int.TryParse(entityClass.Properties.Values["JumpIndexes"], out this.JumpIndexes);
     }
 
    
@@ -256,34 +218,6 @@ class MecanimSDX : MonoBehaviour, IAvatarController
         return null;
     }
 
-    //// Grabs the XML value for the animations we've set, and convert them into a hashSet for our special attacks.
-    //private static HashSet<int> ConvertAnimationListToHash(HashSet<int> hashSet, String strAnimation, EntityClass entityClass, List<String> strList )
-    //{
-    //    if (hashSet == null)
-    //    {
-    //        hashSet = new HashSet<int>();
-    //    }
-
-    //    if ( strList == null )
-    //    {
-    //        strList = new List<String>();
-    //    }
-    //    // If the animation we are looking for is available, then convert it into a hashSet, which is what the Animator will want to use.
-    //    if (entityClass.Properties.Values.ContainsKey(strAnimation))
-    //    {
-    //       // We grab the string value first, then turn it into a hash. We then check to see if it already exists, and if it doesn't, add it.
-    //       String strAnimationValue = entityClass.Properties.Values[strAnimation].ToString();
-    //       int intAnimationValue = Animator.StringToHash( strAnimationValue);
-    //       if (!hashSet.Contains(intAnimationValue))
-    //       {
-    //           hashSet.Add( intAnimationValue);
-    //           strList.Add(strAnimationValue);
-    //       }
-    //    }
-
-    //    return hashSet;
-    //}
-
     // not Implemented
     public void RemoveLimb(EnumBodyPartHit _bodyPart, bool restoreState) { }
 
@@ -325,16 +259,16 @@ class MecanimSDX : MonoBehaviour, IAvatarController
         this.anim.SetBool("IsDead", this.entityAlive.IsDead());
         this.anim.SetBool("IsAlive", this.entityAlive.IsAlive());
 
-        //// Add in support for animations that can fire weapons
-        //if (this.rightHandItemTransform != null)
-        //{
-        //    //Debug.Log("RIGHTHAND ITEM TRANSFORM");
-        //    this.rightHandItemTransform.parent = this.rightHandItemTransform;
-        //    Vector3 position = global::AnimationGunjointOffsetData.AnimationGunjointOffset[this.entityAlive.inventory.holdingItem.HoldType.Value].position;
-        //    Vector3 rotation = global::AnimationGunjointOffsetData.AnimationGunjointOffset[this.entityAlive.inventory.holdingItem.HoldType.Value].rotation;
-        //    this.rightHandItemTransform.localPosition = position;
-        //    this.rightHandItemTransform.localEulerAngles = rotation;
-        //}
+        // Add in support for animations that can fire weapons
+        if (this.rightHandItemTransform != null)
+        {
+            //Debug.Log("RIGHTHAND ITEM TRANSFORM");
+            this.rightHandItemTransform.parent = this.rightHandItemTransform;
+            Vector3 position = global::AnimationGunjointOffsetData.AnimationGunjointOffset[this.entityAlive.inventory.holdingItem.HoldType.Value].position;
+            Vector3 rotation = global::AnimationGunjointOffsetData.AnimationGunjointOffset[this.entityAlive.inventory.holdingItem.HoldType.Value].rotation;
+            this.rightHandItemTransform.localPosition = position;
+            this.rightHandItemTransform.localEulerAngles = rotation;
+        }
     }
 
     private void UpdateBaseState()
@@ -345,8 +279,7 @@ class MecanimSDX : MonoBehaviour, IAvatarController
     // Check if the Animation attack is still playing.
     public bool IsAnimationAttackPlaying()
     {
-        Log("IsAnimationAttacKPlaying");
-        return this.ActionTime > 0f || (!this.anim.IsInTransition(0));// && this.AttackHash.Contains(this.currentBaseState.fullPathHash));
+        return this.ActionTime > 0f || (!this.anim.IsInTransition(0)&& this.AttackHash.Contains(this.currentBaseState.fullPathHash));
     }
 
     // Picks a random attack index, and then fires off the attack trigger. 
@@ -357,7 +290,7 @@ class MecanimSDX : MonoBehaviour, IAvatarController
             this.ActionTime = 1f;
         }
 
-        Log("Animation Attack");
+
         // Randomly set the index for the AttackIndex, which allows us different attacks
         SetRandomIndex("AttackIndex");
         this.anim.SetTrigger("Attack");
@@ -808,67 +741,6 @@ class MecanimSDX : MonoBehaviour, IAvatarController
     }
 
   
-}
-
-
-public class AnimationSelect : StateMachineBehaviour
-{
-
-    // OnStateEnter is called before OnStateEnter is called on any state inside this state machine
-    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        Debug.Log("OnStateEnter!");
-        animator.SetInteger("AttackIndex", UnityEngine.Random.Range(0, 6));
-
-    }
-
-    // OnStateUpdate is called before OnStateUpdate is called on any state inside this state machine
-    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-    //
-    //}
-
-    // OnStateExit is called before OnStateExit is called on any state inside this state machine
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-    //
-    //}
-
-    // OnStateMove is called before OnStateMove is called on any state inside this state machine
-    //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-    //
-    //}
-
-    // OnStateIK is called before OnStateIK is called on any state inside this state machine
-    //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-    //
-    //}
-
-    // OnStateMachineEnter is called when entering a statemachine via its Entry Node
-    //override public void OnStateMachineEnter(Animator animator, int stateMachinePathHash){
-    //
-    //}
-
-    // OnStateMachineExit is called when exiting a statemachine via its Exit Node
-    //override public void OnStateMachineExit(Animator animator, int stateMachinePathHash) {
-    //
-    //}
-}
-
-
-
-
-public class ScriptBundleTest : MonoBehaviour
-{
-    void Start()
-    {
-        AssetBundle assetBundle = new AssetBundle();
-        assetBundle.LoadAsset("AnimationSelect", typeof(AnimationSelect));
-    }
-
-
-    void OnReceiveType(string requestedTypeName, Type type)
-    {
-        gameObject.AddComponent(type);
-    }
 }
 
 
