@@ -584,15 +584,18 @@ class MecanimSDX : MonoBehaviour, IAvatarController
             float num4 = num * num + num3 * num3;
             if (!this.entityAlive.IsDead())
             {
-                SetRandomIndex("WalkIndex");
-                SetRandomIndex("RunIndex");             
-                this.anim.SetInteger("MovementState", (num4 <= this.entityAlive.speedApproach * this.entityAlive.speedApproach) ? ((num4 <= this.entityAlive.speedWander * this.entityAlive.speedWander) ? ((num4 <= 0.001f) ? 0 : 1) : 2) : 3);
+                //SetRandomIndex("WalkIndex");
+                //SetRandomIndex("RunIndex");
+                //Log("Forward Speed:" + num);
+                //Log("Strafe Speed: " + num3);
+
+                Log("MovementState: " + ((num4 <= this.entityAlive.speedApproach * this.entityAlive.speedApproach) ? ((num4 <= this.entityAlive.speedWander * this.entityAlive.speedWander) ? ((num4 <= 0.001f) ? 0 : 2) : 1) : 0).ToString());
+                this.anim.SetInteger("MovementState", (num4 <= this.entityAlive.speedApproach * this.entityAlive.speedApproach) ? ((num4 <= this.entityAlive.speedWander * this.entityAlive.speedWander) ? ((num4 <= 0.001f) ? 0 : 2) : 1) : 0);
 
             }
             if (Mathf.Abs(num) <= 0.01f && Mathf.Abs(num2) <= 0.01f)
             {
-             
-                SetRandomIndex("IdleIndex");
+                //SetRandomIndex("IdleIndex");
                 this.anim.SetBool("IsMoving", false);
             }
             else
@@ -708,12 +711,10 @@ class MecanimSDX : MonoBehaviour, IAvatarController
     private void AddTransformRefs(Transform t)
     {
 
-        Log("Checking " + t.name + " tag " + t.tag);
         if (t.GetComponent<Collider>() != null && t.GetComponent<RootTransformRefEntity>() == null)
         {
             RootTransformRefEntity root = t.gameObject.AddComponent<RootTransformRefEntity>();
             root.RootTransform = this.transform;
-            Log("Added root ref on " + t.name + " tag " + t.tag);
         }
         foreach (Transform tran in t)
         {
