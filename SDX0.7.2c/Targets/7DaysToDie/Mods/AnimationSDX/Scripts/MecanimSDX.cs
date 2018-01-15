@@ -586,9 +586,7 @@ class MecanimSDX : MonoBehaviour, IAvatarController
             {
                 //SetRandomIndex("WalkIndex");
                 //SetRandomIndex("RunIndex");
-                //Log("Forward Speed:" + num);
-                //Log("Strafe Speed: " + num3);
-
+      
                 Log("MovementState: " + ((num4 <= this.entityAlive.speedApproach * this.entityAlive.speedApproach) ? ((num4 <= this.entityAlive.speedWander * this.entityAlive.speedWander) ? ((num4 <= 0.001f) ? 0 : 2) : 1) : 0).ToString());
                 this.anim.SetInteger("MovementState", (num4 <= this.entityAlive.speedApproach * this.entityAlive.speedApproach) ? ((num4 <= this.entityAlive.speedWander * this.entityAlive.speedWander) ? ((num4 <= 0.001f) ? 0 : 2) : 1) : 0);
 

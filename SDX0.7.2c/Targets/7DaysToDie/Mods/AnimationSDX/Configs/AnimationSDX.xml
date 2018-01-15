@@ -68,6 +68,43 @@
         <property name="IdleIndexes" value="0" />
         <property name="JumpIndexes" value="0" />
       </entity_class>
+
+      <entity_class name="BodyGuard01" extends="zombieTemplateMale" >
+        <property name="Mesh" value="#BodyGuard?BodyGuard" />
+        <property name="AvatarController" value="MecanimSDX, Mods" />
+        <property name="RootMotion" value="false" />
+        <property name="WanderSpeed" value="0.8" />
+        <property name="ApproachSpeed" value="0.8" />
+        <property name="NightWanderSpeed" value="0.8" />
+        <property name="NightApproachSpeed" value="1.1" />
+        <!--        
+         Your attack states 
+         These are used to let the game know if there's an attack animation already playing. If it is, then IsAttackAnimationIsPlay will return true.
+         If these are not listed, then the entity will not attack.
+         
+         All attack animations can be added here, including special attacks, etc.
+        -->
+        <property name="AttackAnimations" value="Attack, Zombie Attack" />
+
+        <!-- How many animations for each state. If non-specified, it's 0 
+          So if you don't have multiple attacks, or don't use the special Index states in your Animator State Machine, then you don't need to set these at all.
+        -->
+        <property name="AttackIndexes" value="2" />
+        <property name="SpecialAttackIndexes" value="0" />
+        <property name="SpecialSecondIndexes" value="0" />
+        <property name="RagingIndexes" value="0" />
+        <property name="ElectrocutionIndexes" value="0" />
+        <property name="CrouchIndexes" value="0" />
+        <property name="StunIndexes" value="0" />
+        <property name="SleeperIndexes" value="0" />
+        <property name="HarvestIndexes" value="0" />
+        <property name="PainIndexes" value="0" />
+        <property name="DeathIndexes" value="0" />
+        <property name="RunIndexes" value="7" />
+        <property name="WalkIndexes" value="6" />
+        <property name="IdleIndexes" value="10" />
+        <property name="JumpIndexes" value="0" />
+      </entity_class>
     </append>
   </config>
 </configs>
