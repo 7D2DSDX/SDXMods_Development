@@ -153,8 +153,18 @@ class MecanimSDX : MonoBehaviour, IAvatarController
         try
         {
 
-            this.bipedTransform = base.transform.Find("Graphics");
-            this.modelTransform = base.transform.Find("Graphics/Model").GetChild(0);
+            try
+            {
+                this.bipedTransform = base.transform.Find("Graphics");
+            }
+            catch( Exception ex )
+            {
+                Log("Biped Transform Error: Invalid Prefab for Mesh");
+                throw (new Exception("Mesh Error: Invalid Prefab: " + this.name.ToString() + ": " + ex.ToString() ));
+
+
+            }
+            this.modelTransform = this.bipedTransform.Find("Model").GetChild(0);
             if (this.modelTransform == null)
             {
                 Log(" !! Model Transform is null!");

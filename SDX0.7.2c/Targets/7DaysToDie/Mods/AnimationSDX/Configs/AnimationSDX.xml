@@ -70,7 +70,7 @@
       </entity_class>
 
       <entity_class name="BodyGuard01" extends="zombieTemplateMale" >
-        <property name="Mesh" value="#BodyGuard?BodyGuard" />
+        <property name="Mesh" value="#BodyGuard?BodyGuard01" />
         <property name="AvatarController" value="MecanimSDX, Mods" />
         <property name="RootMotion" value="false" />
         <property name="WanderSpeed" value="0.8" />
@@ -104,6 +104,36 @@
         <property name="WalkIndexes" value="6" />
         <property name="IdleIndexes" value="10" />
         <property name="JumpIndexes" value="0" />
+      </entity_class>
+
+      <entity_class name="Erika" extends="zombieTemplateMale" >
+        <property name="Mesh" value="#Erika?erika_archer" />
+        <property name="Class" value="EntityBandit"/>
+
+        <property name="AvatarController" value="MecanimSDX, Mods" />
+        <property name="RootMotion" value="true" />
+        <property name="WanderSpeed" value="0.8" />
+        <property name="ApproachSpeed" value="0.8" />
+        <property name="NightWanderSpeed" value="0.8" />
+        <property name="NightApproachSpeed" value="1.1" />
+
+        <property name="HandItem" value="woodenBow" />
+
+        <property name="ItemsOnEnterGame.GameModeSurvivalSP" value="woodenBow,arrow"/>
+        <property name="ItemsOnEnterGame.GameModeSurvivalMP" value="woodenBow,arrow"/>
+
+        <!--        
+         Your attack states 
+         These are used to let the game know if there's an attack animation already playing. If it is, then IsAttackAnimationIsPlay will return true.
+         If these are not listed, then the entity will not attack.
+         
+         All attack animations can be added here, including special attacks, etc.
+        -->
+        <property name="AttackAnimations" value="Shooting Arrow" />
+
+        <property name="AITask-1" value="RangedAttackTarget2" param1="0" param2="5"/>
+
+
       </entity_class>
     </append>
   </config>

@@ -1,0 +1,16 @@
+<mod>
+	<info>
+		<author>sphereii</author>
+		<name>Guppycur's Traps</name>
+		<description>Guppy's Tricks and Traps </description>
+		<mod_version>1.0</mod_version>
+		<game_version>16.4</game_version>
+		<launcher_version>0.5.5</launcher_version>
+	</info>
+	
+	
+	<config_mods>
+		<import file="Configs\Traps.xml" />
+	</config_mods>
+	
+</mod>
