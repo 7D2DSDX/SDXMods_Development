@@ -7,38 +7,63 @@ using UnityEngine;
 /// We inherit Block class. This is the Basic Vanilla block without any special behaviour.
 /// In the XML, Block classes are always referenced by removing the block word. In this case it would be "TrapTutorial, Mods"
 /// </summary>
-public class BlockGuppyTrap : Block
+public class BlockGuppyTrap : BlockPressurePlate
 {
     private string openSound;
     private string closeSound;
 
-    private float nextCheck = 0;
-    private float Delay = 10f;
-
-    // overriding the initialization function.
-    public override void Init()
+     public override bool OnEntityCollidedWithBlock(WorldBase _world, int _clrIdx, Vector3i _blockPos,
+        BlockValue _blockValue, Entity _targetEntity)
     {
-        base.Init();
-        // assign custom sounds to open and close, IF configured in xml
-        if (this.Properties.Values.ContainsKey("OpenSound"))
-            this.openSound = this.Properties.Values["OpenSound"];
-        if (this.Properties.Values.ContainsKey("CloseSound"))
-            this.closeSound = this.Properties.Values["CloseSound"];
-        this.IsRandomlyTick = true;
-    }
 
-    public override bool OnEntityCollidedWithBlock(WorldBase _world, int _clrIdx, Vector3i _blockPos,
-        BlockValue _blockValue, Entity _entity)
-    {
-        // when a entity collides with the block, it will trigger the trap action.
-        // for this simple example, our traps are not doing damage, so they will ONLY play an animation
-        // we'll add damage in a future guide
-        OperateTrap(_world, _clrIdx, _blockPos, _blockValue, _entity, true);
+        Debug.Log("PLayer on block!");
+      //  OperateTrap(_world, _clrIdx, _blockPos, _blockValue, _targetEntity, false);
+        if (!base.OnEntityCollidedWithBlock(_world, _clrIdx, _blockPos, _blockValue, _targetEntity))
+        {
+            return false;
 
-      
+        }
+
+       
+      //  _world.SetBlockRPC(_clrIdx, _blockPos, _blockValue);
         return true;
     }
 
+    private bool LG(WorldBase worldBase, int num, Vector3i blockPos, BlockValue blockValue, bool flag )
+    {
+        Debug.Log("lg iN!");
+        ChunkCluster chunkCluster = worldBase.ChunkClusters[num];
+        if (chunkCluster == null)
+        {
+            return false;
+        }
+        if (chunkCluster.GetChunkSync(World.toChunkXZ(blockPos.x), World.toChunkY(blockPos.y), World.toChunkXZ(blockPos.z)) == null)
+        {
+            return false;
+        }
+        bool flag2 = (blockValue.meta & 1) != 0;
+        bool isTriggered = (blockValue.meta & 2) != 0;
+        if (Steam.Network.IsServer)
+        {
+            TileEntityPoweredTrigger tileEntityPoweredTrigger = worldBase.GetTileEntity(num, blockPos) as TileEntityPoweredTrigger;
+            if (tileEntityPoweredTrigger != null)
+            {
+                tileEntityPoweredTrigger.IsTriggered = isTriggered;
+            }
+        }
+
+        BlockEntityData _ebcd = worldBase.ChunkClusters[num].GetBlockEntity(blockPos);
+        if (isTriggered)
+        {
+            PlayAnimation(_ebcd, true);
+        }
+        else
+        {
+            PlayAnimation(_ebcd, false);
+        }
+        return true;
+    }
+    
     public override void OnBlockValueChanged(WorldBase _world, int _clrIdx, Vector3i _blockPos, BlockValue _oldBlockValue,
         BlockValue _newBlockValue)
     {
@@ -46,11 +71,18 @@ public class BlockGuppyTrap : Block
         // what happens is that, everytime an action occurs, we update the blockvale.
         // that causes this function to be triggered for ALL players, and every client can then play the correct animation locally.
         base.OnBlockValueChanged(_world, _clrIdx, _blockPos, _oldBlockValue, _newBlockValue);
+
         if (!(this.shape is BlockShapeModelEntity) || _oldBlockValue.type == _newBlockValue.type && (int)_oldBlockValue.meta == (int)_newBlockValue.meta || _newBlockValue.ischild)
             return;
+
         // trigger animation
-        playAnimation(_world, _clrIdx, _blockPos, _oldBlockValue, _newBlockValue);
+        //playAnimation(_world, _clrIdx, _blockPos, _oldBlockValue, _newBlockValue);
+
+
+        this.LG(_world, _clrIdx, _blockPos, _newBlockValue, false);
+    
     }
+
 
     // custom function to play the animation.
     private void playAnimation(WorldBase _world, int _clrIdx, Vector3i _blockPos, BlockValue _oldBlockValue, BlockValue _blockValue)
@@ -64,45 +96,59 @@ public class BlockGuppyTrap : Block
             return;
         }
 
+        Debug.Log("Playing Animation");
         // once we find an animator, lets use the correct trigger for the action.
         foreach (Animator animator in componentsInChildren)
         {
             if (IsTrapFired(_blockValue.meta) && !IsTrapFired(_oldBlockValue.meta))
             {
-
-                Debug.Log("Playing Walked on Block");
                 // if the trap was triggered while ready, we'll play open animation
                 // if you remember the animator, we used the trigger openT to run the open animation.
                 // if a open sound exists, it will also be played!
                 Audio.Manager.BroadcastPlay(_blockPos.ToVector3(), openSound);
                 animator.SetBool("Active", true);
+                animator.SetTrigger("Active");
+                Debug.Log("True!");
             }
             else if (!IsTrapFired(_blockValue.meta) && IsTrapFired(_oldBlockValue.meta))
             {
-                Debug.Log("Playing Walked on Block 2");
-
                 // if the trap is being reseted by a player, we'll play close animation
                 // if you remember the animator, we used the trigger closeT to run the open animation.
                 // if a close sound exists, it will also be played!
                 Audio.Manager.BroadcastPlay(_blockPos.ToVector3(), closeSound);
-              animator.SetBool("Active", false);
+                Debug.Log("False!");
+                animator.SetBool("Active", false);
             }
         }
     }
 
-    public override bool UpdateTick(WorldBase _world, int _clrIdx, Vector3i _blockPos, BlockValue _blockValue, bool _bRandomTick, ulong _ticksIfLoaded, System.Random _rnd)
+   private void PlayAnimation(BlockEntityData _ebcd, bool blPlay )
     {
-        Debug.Log("Checking Tick");
-        if (nextCheck < Time.time)
+        Animator[] componentsInChildren;
+        if (_ebcd == null || !_ebcd.bHasTransform ||
+            (componentsInChildren = _ebcd.transform.GetComponentsInChildren<Animator>(false)) == null)
         {
-            Debug.Log("Disabling Trap");
-            OperateTrap(_world, _clrIdx, _blockPos, _blockValue, null, false);
+            return;
         }
-            return true;
+
+        // we get the block entity data so that we can find the object transform and search for an animator.
+        foreach (Animator animator in componentsInChildren)
+        {
+            if (blPlay)
+            {
+                animator.SetBool("Active", true);
+                animator.SetTrigger("Active");
+            }
+            else
+            {
+                animator.SetBool("Active", false);
+                //animator.SetTrigger("Active");
+
+            }
+        }
     }
     // custom function to operate the trap. If it is resulting from a collision "fireTrap" will be true, if its player interaction it will be false.
-    private void OperateTrap(WorldBase _world, int _clrIdx, Vector3i _blockPos, BlockValue _blockValue, Entity _entity,
-        bool fireTrap)
+    private void OperateTrap(WorldBase _world, int _clrIdx, Vector3i _blockPos, BlockValue _blockValue, Entity _entity, bool fireTrap)
     {
         // here's where we do operation actions. This will only run if the originator is alive!
         if (fireTrap)
@@ -113,7 +159,7 @@ public class BlockGuppyTrap : Block
             {
 
                 // On the Collider, we want to do our next check at the delay interval, which is about 10 ticks.
-                nextCheck = Time.time + this.Delay;
+               // nextCheck = Time.time + this.Delay;
 
                 #region Fire trap;                                                         
                 // I will be using the bit 0, and set it to 1 here. This will let everyone know that the trap is open (waiting for reset)
@@ -138,39 +184,7 @@ public class BlockGuppyTrap : Block
         }
     }
 
-    public override bool OnBlockActivated(WorldBase _world, int _clrIdx, Vector3i _blockPos, BlockValue _blockValue, EntityAlive _player)
-    {
-        // player interaction with the trap.
-       OperateTrap(_world, _clrIdx, _blockPos, _blockValue, _player, false);
-        return true;
-    }
-
-    public override bool OnBlockActivated(int _indexInBlockActivationCommands, WorldBase _world, int _cIdx, Vector3i _blockPos,
-        BlockValue _blockValue, EntityAlive _player)
-    {
-        return OnBlockActivated(_world, _cIdx, _blockPos, _blockValue, _player);
-    }
-
-    public override void ForceAnimationState(BlockValue _blockValue, BlockEntityData _ebcd)
-    {
-        // this is very important to keep the animator state in sync.
-        // basically, everytime this object is loaded into the player sceane, we will check what is the trap state
-        // and force the animator to the correct state.
-        // Imagine that a trap was already triggered (bit0 = 1): if we didn't do this, a player entering the sceane would see the trap on its iddle state.
-        // by forcing the animator state, he will correctly see the trap waiting for reset.
-        Animator[] componentsInChildren;
-        if (_ebcd == null || !_ebcd.bHasTransform ||
-            (componentsInChildren = _ebcd.transform.GetComponentsInChildren<Animator>(false)) == null)
-            return;
-        bool flag = IsTrapFired(_blockValue.meta);
-        foreach (Animator animator in componentsInChildren)
-        {
-            if (flag)
-                animator.CrossFade("open", 0.0f);
-            else
-                animator.CrossFade("Idle", 0.0f);
-        }
-    }
+ 
 
     /// <summary>
     /// Check if trap is already triggered
@@ -182,18 +196,5 @@ public class BlockGuppyTrap : Block
         return ((int)_metadata & 1 << 0) != 0;
     }
 
-    //public override string GetActivationText(WorldBase _world, BlockValue _blockValue, int _clrIdx, Vector3i _blockPos,
-    //    EntityAlive _entityFocusing)
-    //{
-    //    // basically changes the text the player will see while pointing at the trap.
-    //    // if the trap is ready, he wont be able to interact.
-    //    if (!IsTrapFired(_blockValue.meta))
-    //    {
-    //        return "";
-    //    }
-    //    else
-    //    {
-    //        return "Press <{0}> to reset trap";
-    //    }
-    //}
+ 
 }
