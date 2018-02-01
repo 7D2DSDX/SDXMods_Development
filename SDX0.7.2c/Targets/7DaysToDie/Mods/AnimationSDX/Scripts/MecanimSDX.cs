@@ -114,7 +114,7 @@ class MecanimSDX : MonoBehaviour, IAvatarController
             this.rightHandItemTransform = FindTransform(this.bipedTransform, this.bipedTransform, RightHand);
         }
 
-        this.AttackHash = GenerateLists(entityClass, "Attacks", this.AttackStrings);
+        this.AttackHash = GenerateLists(entityClass, "Attack", this.AttackStrings);
 
 
         // The following will read our Index values from the XML to determine the maximum attack animations.
