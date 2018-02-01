@@ -594,8 +594,7 @@ class MecanimSDX : MonoBehaviour, IAvatarController
             float num4 = num * num + num3 * num3;
             if (!this.entityAlive.IsDead())
             {
-                //SetRandomIndex("WalkIndex");
-                //SetRandomIndex("RunIndex");
+               
       
                 Log("MovementState: " + ((num4 <= this.entityAlive.speedApproach * this.entityAlive.speedApproach) ? ((num4 <= this.entityAlive.speedWander * this.entityAlive.speedWander) ? ((num4 <= 0.001f) ? 0 : 2) : 1) : 0).ToString());
                 this.anim.SetInteger("MovementState", (num4 <= this.entityAlive.speedApproach * this.entityAlive.speedApproach) ? ((num4 <= this.entityAlive.speedWander * this.entityAlive.speedWander) ? ((num4 <= 0.001f) ? 0 : 2) : 1) : 0);
@@ -603,7 +602,9 @@ class MecanimSDX : MonoBehaviour, IAvatarController
             }
             if (Mathf.Abs(num) <= 0.01f && Mathf.Abs(num2) <= 0.01f)
             {
-                //SetRandomIndex("IdleIndex");
+                SetRandomIndex("WalkIndex");
+                SetRandomIndex("RunIndex");
+                SetRandomIndex("IdleIndex");
                 this.anim.SetBool("IsMoving", false);
             }
             else
