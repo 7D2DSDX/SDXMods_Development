@@ -650,7 +650,7 @@ class MecanimSDX : MonoBehaviour, IAvatarController
             case "SpecialAttackIndex":
                 intRandom = GetRandomIndex(this.SpecialAttackIndexes);
                 break;
-            case "SpecialSecondAttack":
+            case "SpecialSecondIndexes":
                 intRandom = GetRandomIndex(this.SpecialSecondIndexes);
                 break;
             case "RagingIndex":
