@@ -700,7 +700,7 @@ class MecanimSDX : MonoBehaviour, IAvatarController
 
     public int GetRandomIndex( int intMax )
     {
-        return UnityEngine.Random.Range(0, intMax -1 );
+        return UnityEngine.Random.Range(0, intMax );
     }
 
 
